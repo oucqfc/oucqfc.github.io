@@ -87,37 +87,46 @@
 
 
 
-<meta name="description" content="基于libSVN的图像块分类及标定
-安装opencv
-下载opencv.exe,安装，配置环境变量：OPENCV_HOME,Path
+<meta name="description" content="基于opencv 3.1 自带的SVM的训练检测无人机
+处理正负样本（负样本为正样本数的3倍）
+要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入的检测器的响亮就是3780+rho 总共3781个向量
+
+训练-训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
+
+测试-
 
 
-在VS2013配置opencv环境-VC++directories，Linker中的input
 
-vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/50629876）在Windows">
+测试时，只需加载de">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于libSVN的图像块分类及标定">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/cv1/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/blog1/index.html">
 <meta property="og:site_name" content="FangChao.Qu Blog">
-<meta property="og:description" content="基于libSVN的图像块分类及标定
-安装opencv
-下载opencv.exe,安装，配置环境变量：OPENCV_HOME,Path
+<meta property="og:description" content="基于opencv 3.1 自带的SVM的训练检测无人机
+处理正负样本（负样本为正样本数的3倍）
+要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入的检测器的响亮就是3780+rho 总共3781个向量
+
+训练-训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
+
+测试-
 
 
-在VS2013配置opencv环境-VC++directories，Linker中的input
 
-vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/50629876）在Windows">
-<meta property="og:updated_time" content="2017-04-10T04:30:18.122Z">
+测试时，只需加载de">
+<meta property="og:updated_time" content="2017-04-25T02:55:04.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于libSVN的图像块分类及标定">
-<meta name="twitter:description" content="基于libSVN的图像块分类及标定
-安装opencv
-下载opencv.exe,安装，配置环境变量：OPENCV_HOME,Path
+<meta name="twitter:description" content="基于opencv 3.1 自带的SVM的训练检测无人机
+处理正负样本（负样本为正样本数的3倍）
+要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入的检测器的响亮就是3780+rho 总共3781个向量
+
+训练-训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
+
+测试-
 
 
-在VS2013配置opencv环境-VC++directories，Linker中的input
 
-vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/50629876）在Windows">
+测试时，只需加载de">
 
 
 
@@ -145,7 +154,7 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/cv1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/blog1/"/>
 
 
 
@@ -270,7 +279,7 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/cv1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/blog1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FangChao.Qu">
@@ -306,8 +315,8 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T09:26:46+08:00">
-                2017-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T09:26:46+08:00">
+                2017-04-25
               </time>
             
 
@@ -342,18 +351,22 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
       
 
       
-        <h2 id="基于libSVN的图像块分类及标定"><a href="#基于libSVN的图像块分类及标定" class="headerlink" title="基于libSVN的图像块分类及标定"></a>基于libSVN的图像块分类及标定</h2><ul>
-<li>安装opencv</li>
-<li>下载opencv.exe,安装，配置环境变量：OPENCV_HOME,Path</li>
+        <h2 id="基于opencv-3-1-自带的SVM的训练检测无人机"><a href="#基于opencv-3-1-自带的SVM的训练检测无人机" class="headerlink" title="基于opencv 3.1 自带的SVM的训练检测无人机"></a>基于opencv 3.1 自带的SVM的训练检测无人机</h2><ul>
+<li>处理正负样本（负样本为正样本数的3倍）</li>
+<li><p>要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入<br>的检测器的响亮就是3780+rho 总共3781个向量</p>
+</li>
+<li><p>训练<br>-<br>训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector</p>
+</li>
+<li><p>测试<br>-</p>
+</li>
 </ul>
+<ol>
+<li>测试时，只需加载detector所在的txt文件，将他传给vector去检测即可。</li>
+<li>注意detectMultiScale函数耗时时间很长，hog_test.detectMultiScale(src, found, 0, Size(8, 8), Size(32, 32), 1.05, 2);注意调整其参数</li>
+</ol>
 <ul>
-<li><p>在VS2013配置opencv环境<br>-<br>VC++directories，Linker中的input</p>
-</li>
-<li><p>vs2013集成QT5<br>-<br>（转载自 <a href="http://blog.csdn.net/u013360881/article/details/50629876）" target="_blank" rel="external">http://blog.csdn.net/u013360881/article/details/50629876）</a><br>在Windows Host下，下载Qt 5.5.1 for Windows 64-bit (VS 2013, 823 MB) ；在Other downloads下，下载Visual Studio Add-in 1.2.4 for Qt5 (156 MB)  ，当然具体版本还需根据自己的实际情况来定，这里是以我的安装版本为例进行介绍的。</p>
-</li>
+<li>经验总结<br>-<br>1:学会了sourceTree的基本用法<br>克隆/新建：创建一个新仓库，或者从服务器克隆，或者加载本地已经有的<br>提交：git命令的commit，上传到本地仓库<br>检出：checkout，其实就是切换，切换不同分支，切换一个分支的不同版本<br>丢弃：回到最近一次add或者commit的状态。<br>暂存：git stash，手头工作没有完成的时候，保存一下现场<br>添加：add，把工作区的修改添加到暂缓区<br>获取和拉取：git fetch和git pull，获取是从远端获取最新版本到本地，但是不会自动合并，而拉取是会自动合并。fetch更安全一些，可以查看更新情况，然后决定是否合并。<br>推送：push,本地数据库的更新上传到远端。<br>分支：创建或者删除分支。<br>合并：分支的合并<br>标签：给每个版本定义个标签<br>Git工作流：一般master是总的主枝，每个人开发的时候都自己定义一个dev分支是自己的主枝，当没有问题的时候提交到master，然后每个人自己开发新功能的时候创建一个feature功能分支，修改BUG时要单独拿出一个BUG分支。<br>命令行模式：可以输入git命令<br>2:对于opencv的HOG+SVM的整体技术路线清楚了，可以进行单帧目标识别</li>
 </ul>
-<p>安装顺序：最好先安装第一个，然后在安装后一个。</p>
-<p>配置：1、在VS中新建项目，命名为test，选择第一个应用平台，然后直接next即可；<br>           2、在菜单栏上有个Qt5，在其下拉菜单中找到Qt options-&gt;添加name和path，<br>name这里为VS2013_QT5.5.1,这个最好与安装的VS和QT版本一致；path为QT安装后的路径，路径末端一直到msvc2013_64即可；<br>           3、点击test项目右键找到Qt project setting后双击，选择最后一项版本，点击下拉菜单找到相应版本；<br>           4、项目属性 -&gt; 链接器 -&gt; 高级 -&gt; 目标计算机 -&gt; 将其值改为MachineX86；<br>                 配置管理器 -&gt; 平台 -&gt; 改为活动（X64）；<br>           5、项目属性 -&gt; VC++目录 -&gt; 包含目录 -&gt; 添加QT安装目录下include路径；</p>
 
       
     </div>
@@ -390,8 +403,8 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/07/dajianlicheng/" rel="next" title="Node.js+Hexo+Git搭建个人博客心路历程">
-                <i class="fa fa-chevron-left"></i> Node.js+Hexo+Git搭建个人博客心路历程
+              <a href="/2017/04/10/cv1/" rel="next" title="基于libSVN的图像块分类及标定">
+                <i class="fa fa-chevron-left"></i> 基于libSVN的图像块分类及标定
               </a>
             
           </div>
@@ -399,10 +412,6 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/25/blog1/" rel="prev" title="基于libSVN的图像块分类及标定">
-                基于libSVN的图像块分类及标定 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,7 +531,7 @@ vs2013集成QT5-（转载自 http://blog.csdn.net/u013360881/article/details/506
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于libSVN的图像块分类及标定"><span class="nav-number">1.</span> <span class="nav-text">基于libSVN的图像块分类及标定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于opencv-3-1-自带的SVM的训练检测无人机"><span class="nav-number">1.</span> <span class="nav-text">基于opencv 3.1 自带的SVM的训练检测无人机</span></a></li></ol></div>
             
 
           </div>
