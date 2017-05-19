@@ -1,0 +1,778 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java Web," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.数据字典
+1.1一般它由编号+名称构成。
+
+
+性别：0101男，0102女
+包装单位：0201 PCS，0202 SETS
+区县：02901西安市 02902宝鸡市通用的数据字典，它可以存放多个分类，结构必须是ID+NAMETYPE+ID+NAME 
+
+1.2数据字典都在哪里使用？单选的组合；下拉框
+2.表的业务后缀_c    业务表 customer_b    基础表 base_p  权限表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于SSM的商贸平台项目（第四天）">
+<meta property="og:url" content="http://yoursite.com/2017/05/21/jk4/index.html">
+<meta property="og:site_name" content="FangChao.Qu Blog">
+<meta property="og:description" content="1.数据字典
+1.1一般它由编号+名称构成。
+
+
+性别：0101男，0102女
+包装单位：0201 PCS，0202 SETS
+区县：02901西安市 02902宝鸡市通用的数据字典，它可以存放多个分类，结构必须是ID+NAMETYPE+ID+NAME 
+
+1.2数据字典都在哪里使用？单选的组合；下拉框
+2.表的业务后缀_c    业务表 customer_b    基础表 base_p  权限表">
+<meta property="og:updated_time" content="2017-05-19T03:10:55.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于SSM的商贸平台项目（第四天）">
+<meta name="twitter:description" content="1.数据字典
+1.1一般它由编号+名称构成。
+
+
+性别：0101男，0102女
+包装单位：0201 PCS，0202 SETS
+区县：02901西安市 02902宝鸡市通用的数据字典，它可以存放多个分类，结构必须是ID+NAMETYPE+ID+NAME 
+
+1.2数据字典都在哪里使用？单选的组合；下拉框
+2.表的业务后缀_c    业务表 customer_b    基础表 base_p  权限表">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/21/jk4/"/>
+
+
+
+
+
+  <title> 基于SSM的商贸平台项目（第四天） | FangChao.Qu Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FangChao.Qu Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/jk4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于SSM的商贸平台项目（第四天）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T09:26:46+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-数据字典"><a href="#1-数据字典" class="headerlink" title="1.数据字典"></a>1.数据字典</h1><ul>
+<li><h2 id="1-1一般它由编号-名称构成。"><a href="#1-1一般它由编号-名称构成。" class="headerlink" title="1.1一般它由编号+名称构成。"></a>1.1一般它由编号+名称构成。</h2></li>
+</ul>
+<ol>
+<li>性别：0101男，0102女</li>
+<li>包装单位：0201 PCS，0202 SETS</li>
+<li>区县：02901西安市 02902宝鸡市<br>通用的数据字典，它可以存放多个分类，结构必须是ID+NAME<br>TYPE+ID+NAME </li>
+</ol>
+<h2 id="1-2数据字典都在哪里使用？"><a href="#1-2数据字典都在哪里使用？" class="headerlink" title="1.2数据字典都在哪里使用？"></a>1.2数据字典都在哪里使用？</h2><p>单选的组合；下拉框</p>
+<h1 id="2-表的业务后缀"><a href="#2-表的业务后缀" class="headerlink" title="2.表的业务后缀"></a>2.表的业务后缀</h1><p>_c    业务表 customer<br>_b    基础表 base<br>_p  权限表 privilege</p>
+<h1 id="3-级联删除"><a href="#3-级联删除" class="headerlink" title="3.级联删除"></a>3.级联删除</h1><ol>
+<li><p>Mybatis多层关联关系时，级联删除必须一级一级的删除。多级时要专门写mapper方法。</p>
+</li>
+<li><p>在mybatis在service，删除货物时，先调用附件的service删除方法</p>
+</li>
+<li>通过sql，高速删除（批量删除）每层都要实现一个删除</li>
+</ol>
+<p>业务：要求直接显示合同下的货物数和附件数<br>select count(*) from contract_product_c<br>where contract_id=’928eb2ae-23ba-46e0-9ad0-054354f66af8’</p>
+<p>select count(*) from ext_cproduct_c<br>where contract_product_id in (select contract_product_id from contract_product_c where contract_id=’928eb2ae-23ba-46e0-9ad0-054354f66af8’)</p>
+<h2 id="3-1获取货物数和附件数"><a href="#3-1获取货物数和附件数" class="headerlink" title="3.1获取货物数和附件数"></a>3.1获取货物数和附件数</h2><p>select<br>  (select count(<em>) from contract_product_c<br>  where contract_id=c.contract_id)  as cpnum,<br>  (select count(</em>) from ext_cproduct_c<br>          where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)<br>      ) as extnum,</p>
+<p>  c.*</p>
+<p>from contract_c c</p>
+<h2 id="3-2-PO、VO、BO有什么区别？"><a href="#3-2-PO、VO、BO有什么区别？" class="headerlink" title="3.2 PO、VO、BO有什么区别？"></a>3.2 PO、VO、BO有什么区别？</h2><ol>
+<li>PO    持久化对象，一般就直接对象数据库表</li>
+<li>VO 视图对象，一般对应页面jsp</li>
+<li>BO 业务对象，一般对应复杂业务</li>
+</ol>
+<h1 id="4-合同总金额业务【sql的强大】"><a href="#4-合同总金额业务【sql的强大】" class="headerlink" title="4.合同总金额业务【sql的强大】"></a>4.合同总金额业务【sql的强大】</h1><h2 id="4-1-货物的总金额"><a href="#4-1-货物的总金额" class="headerlink" title="4.1 货物的总金额"></a>4.1 货物的总金额</h2><p>select cnumber*price as cptotal from contract_product_c<br>where contract_id =’471e562b-bfa5-4ba7-a2b5-17e9b0d40179’</p>
+<h2 id="4-2-附件的总金额"><a href="#4-2-附件的总金额" class="headerlink" title="4.2 附件的总金额"></a>4.2 附件的总金额</h2><p>select sum(cnumber*price) as exttotal from ext_cproduct_c<br>       where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)</p>
+<h2 id="4-3最终"><a href="#4-3最终" class="headerlink" title="4.3最终"></a>4.3最终</h2><p>select<br>  (select count(<em>) from contract_product_c<br>  where contract_id=c.contract_id)  as cpnum,<br>  (select count(</em>) from ext_cproduct_c<br>          where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)<br>      ) as extnum,<br>  (<br>      nvl((select sum(cnumber<em>price) as cptotal from contract_product_c<br>      where contract_id =c.contract_id),0)<br>      +<br>      nvl(<br>      (select sum(cnumber</em>price) as exttotal from ext_cproduct_c<br>       where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id))<br>       ,0)<br>  ) as total_amount,<br>c.CONTRACT_ID,c.OFFEROR,c.CONTRACT_NO,c.SIGNING_DATE,c.INPUT_BY,c.CHECK_BY,c.INSPECTOR,c.IMPORT_NUM,c.CREQUEST,c.CUSTOM_NAME,c.DELIVERY_PERIOD,c.SHIP_TIME,c.TRADE_TERMS,c.REMARK,c.PRINT_STYLE,c.OLD_STATE,c.STATE,c.OUT_STATE</p>
+<p>from contract_c c</p>
+<h1 id="5-业务：购销合同查看【sql的强大】"><a href="#5-业务：购销合同查看【sql的强大】" class="headerlink" title="5.业务：购销合同查看【sql的强大】"></a>5.业务：购销合同查看【sql的强大】</h1><ol>
+<li><p>查看合同的主信息，查看合同下的货物信息，还要查看附件信息，货物和附件的信息要显示出它们的关联关系。</p>
+</li>
+<li><p>利用面对对象的关联关系来实现上面的需求非常简单。</p>
+</li>
+<li><p>合同、货物、附件、生产厂家构建复杂多级关联的SQL时原则<br>1） 挑选最小的结果集<br>2）    滚雪球（左连接），逐步往上加内容<br>3）    重复字段，需要起别名（mybatis）</p>
+</li>
+</ol>
+<h3 id="！在实际业务中几乎没有内连接的情况，直接就用左连接即可。"><a href="#！在实际业务中几乎没有内连接的情况，直接就用左连接即可。" class="headerlink" title="！在实际业务中几乎没有内连接的情况，直接就用左连接即可。"></a>！在实际业务中几乎没有内连接的情况，直接就用左连接即可。</h3><h2 id="最终实现业务的超长sql"><a href="#最终实现业务的超长sql" class="headerlink" title="最终实现业务的超长sql"></a>最终实现业务的超长sql</h2><pre><code>select 
+c.contract_id,c.offeror,c.contract_no,c.signing_date,c.input_by,c.check_by,c.inspector,c.total_amount,c.import_n    um,c.crequest,c.custom_name,c.delivery_period,c.ship_time,c.trade_terms,c.remark,c.print_style,c.old_state,c.sta    te,c.out_state,c.create_by,c.create_dept,c.create_time, 
+t.contract_product_id,t.product_no,t.product_image,t.product_desc,t.cnumber,t.out_number,t.loading_rate,t.box_num,t.packing_unit,t.price,t.amount,t.finished,t.exts,t.order_no,t.factory_id,t.full_name,t.factory_name,t.contacts,t.phone, t.ext_cproduct_id,     t.ctype,t.ext_product_no,t.ext_product_image,t.ext_product_desc,t.ext_cnumber,t.ext_packing_         unit,t.ext_price,t.ext_amount,t.product_request,
+ t.ext_order_no,
+ t.ext_factory_id,t.ext_full_name,t.ext_factory_name,t.ext_contacts,t.ext_phone
+
+from
+(
+  select 
+      contract_id,offeror,contract_no,signing_date,input_by,check_by,inspector,total_amount,import_num,crequest,custom_name,delivery_period,ship_time,trade_terms,remark,print_style,old_state,state,out_state,create_by,create_dept,create_time
+   from contract_c ) c left join (
+   select
+          cp.contract_product_id,cp.contract_id,
+          cp.product_no,cp.product_image,cp.product_desc,cp.cnumber,cp.out_number,cp.loading_rate,cp.box_num,cp.packing_unit,cp.price,cp.amount,cp.finished,cp.exts,cp.order_no,
+          cp.factory_id,cp.full_name,cp.factory_name,cp.contacts,cp.phone,
+
+          ext.ext_cproduct_id,
+          ext.ctype,ext.product_no as ext_product_no,ext.product_image as ext_product_image,ext.product_desc as ext_product_desc,
+          ext.cnumber as ext_cnumber,ext.packing_unit as ext_packing_unit,ext.price as ext_price,ext.amount as ext_amount,
+          ext.product_request,ext.order_no as ext_order_no,
+          ext.factory_id as ext_factory_id,ext.full_name as ext_full_name,ext.factory_name as ext_factory_name,ext.contacts as ext_contacts,ext.phone as ext_phone
+
+    from
+    (
+        select
+          cp.contract_product_id,cp.contract_id,
+          cp.product_no,cp.product_image,cp.product_desc,cp.cnumber,cp.out_number,cp.loading_rate,cp.box_num,cp.packing_unit,cp.price,cp.amount,cp.finished,cp.exts,cp.order_no,
+          f.factory_id,f.full_name,f.factory_name,f.contacts,f.phone
+        from
+        (select 
+        contract_product_id,contract_id,factory_id,
+        product_no,product_image,product_desc,cnumber,out_number,loading_rate,box_num,packing_unit,price,amount,finished,exts,order_no
+         from contract_product_c) cp
+        left join 
+        (select factory_id,full_name,factory_name,contacts,phone from factory_c) f
+        on cp.factory_id=f.factory_id
+    ) cp
+    left join
+    (
+        select
+          ext.ext_cproduct_id,ext.contract_product_id,
+          ext.ctype,ext.product_no,ext.product_image,ext.product_desc,ext.cnumber,ext.packing_unit,ext.price,ext.amount,ext.product_request,ext.order_no,
+          f.factory_id,f.full_name,f.factory_name,f.contacts,f.phone
+        from
+        (
+        select 
+            ext_cproduct_id,contract_product_id,factory_id,
+            ctype,product_no,product_image,product_desc,cnumber,packing_unit,price,amount,product_request,order_no
+         from ext_cproduct_c 
+        ) ext
+        left join 
+        (select factory_id,full_name,factory_name,contacts,phone from factory_c) f
+        on ext.factory_id=f.factory_id
+    ) ext
+    on cp.contract_product_id=ext.contract_product_id) t on c.contract_id=t.contract_id where c.contract_id=#{contractId} 
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-Web/" rel="tag"># Java Web</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/20/jk3/" rel="next" title="基于SSM的商贸平台项目（第三天）">
+                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第三天）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/touxiangImg.JPG"
+               alt="FangChao.Qu" />
+          <p class="site-author-name" itemprop="name">FangChao.Qu</p>
+           
+              <p class="site-description motion-element" itemprop="description">所有人都在努力，并不是只有你满腹委屈</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-数据字典"><span class="nav-number">1.</span> <span class="nav-text">1.数据字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1一般它由编号-名称构成。"><span class="nav-number">1.1.</span> <span class="nav-text">1.1一般它由编号+名称构成。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2数据字典都在哪里使用？"><span class="nav-number">1.2.</span> <span class="nav-text">1.2数据字典都在哪里使用？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-表的业务后缀"><span class="nav-number">2.</span> <span class="nav-text">2.表的业务后缀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-级联删除"><span class="nav-number">3.</span> <span class="nav-text">3.级联删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1获取货物数和附件数"><span class="nav-number">3.1.</span> <span class="nav-text">3.1获取货物数和附件数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-PO、VO、BO有什么区别？"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 PO、VO、BO有什么区别？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-合同总金额业务【sql的强大】"><span class="nav-number">4.</span> <span class="nav-text">4.合同总金额业务【sql的强大】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-货物的总金额"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 货物的总金额</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-附件的总金额"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 附件的总金额</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3最终"><span class="nav-number">4.3.</span> <span class="nav-text">4.3最终</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-业务：购销合同查看【sql的强大】"><span class="nav-number">5.</span> <span class="nav-text">5.业务：购销合同查看【sql的强大】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#！在实际业务中几乎没有内连接的情况，直接就用左连接即可。"><span class="nav-number">5.0.1.</span> <span class="nav-text">！在实际业务中几乎没有内连接的情况，直接就用左连接即可。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终实现业务的超长sql"><span class="nav-number">5.1.</span> <span class="nav-text">最终实现业务的超长sql</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FangChao.Qu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -250,6 +250,217 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/jk4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/21/jk4/" itemprop="url">
+                  基于SSM的商贸平台项目（第四天）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T09:26:46+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-数据字典"><a href="#1-数据字典" class="headerlink" title="1.数据字典"></a>1.数据字典</h1><ul>
+<li><h2 id="1-1一般它由编号-名称构成。"><a href="#1-1一般它由编号-名称构成。" class="headerlink" title="1.1一般它由编号+名称构成。"></a>1.1一般它由编号+名称构成。</h2></li>
+</ul>
+<ol>
+<li>性别：0101男，0102女</li>
+<li>包装单位：0201 PCS，0202 SETS</li>
+<li>区县：02901西安市 02902宝鸡市<br>通用的数据字典，它可以存放多个分类，结构必须是ID+NAME<br>TYPE+ID+NAME </li>
+</ol>
+<h2 id="1-2数据字典都在哪里使用？"><a href="#1-2数据字典都在哪里使用？" class="headerlink" title="1.2数据字典都在哪里使用？"></a>1.2数据字典都在哪里使用？</h2><p>单选的组合；下拉框</p>
+<h1 id="2-表的业务后缀"><a href="#2-表的业务后缀" class="headerlink" title="2.表的业务后缀"></a>2.表的业务后缀</h1><p>_c    业务表 customer<br>_b    基础表 base<br>_p  权限表 privilege</p>
+<h1 id="3-级联删除"><a href="#3-级联删除" class="headerlink" title="3.级联删除"></a>3.级联删除</h1><ol>
+<li><p>Mybatis多层关联关系时，级联删除必须一级一级的删除。多级时要专门写mapper方法。</p>
+</li>
+<li><p>在mybatis在service，删除货物时，先调用附件的service删除方法</p>
+</li>
+<li>通过sql，高速删除（批量删除）每层都要实现一个删除</li>
+</ol>
+<p>业务：要求直接显示合同下的货物数和附件数<br>select count(*) from contract_product_c<br>where contract_id=’928eb2ae-23ba-46e0-9ad0-054354f66af8’</p>
+<p>select count(*) from ext_cproduct_c<br>where contract_product_id in (select contract_product_id from contract_product_c where contract_id=’928eb2ae-23ba-46e0-9ad0-054354f66af8’)</p>
+<h2 id="3-1获取货物数和附件数"><a href="#3-1获取货物数和附件数" class="headerlink" title="3.1获取货物数和附件数"></a>3.1获取货物数和附件数</h2><p>select<br>  (select count(<em>) from contract_product_c<br>  where contract_id=c.contract_id)  as cpnum,<br>  (select count(</em>) from ext_cproduct_c<br>          where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)<br>      ) as extnum,</p>
+<p>  c.*</p>
+<p>from contract_c c</p>
+<h2 id="3-2-PO、VO、BO有什么区别？"><a href="#3-2-PO、VO、BO有什么区别？" class="headerlink" title="3.2 PO、VO、BO有什么区别？"></a>3.2 PO、VO、BO有什么区别？</h2><ol>
+<li>PO    持久化对象，一般就直接对象数据库表</li>
+<li>VO 视图对象，一般对应页面jsp</li>
+<li>BO 业务对象，一般对应复杂业务</li>
+</ol>
+<h1 id="4-合同总金额业务【sql的强大】"><a href="#4-合同总金额业务【sql的强大】" class="headerlink" title="4.合同总金额业务【sql的强大】"></a>4.合同总金额业务【sql的强大】</h1><h2 id="4-1-货物的总金额"><a href="#4-1-货物的总金额" class="headerlink" title="4.1 货物的总金额"></a>4.1 货物的总金额</h2><p>select cnumber*price as cptotal from contract_product_c<br>where contract_id =’471e562b-bfa5-4ba7-a2b5-17e9b0d40179’</p>
+<h2 id="4-2-附件的总金额"><a href="#4-2-附件的总金额" class="headerlink" title="4.2 附件的总金额"></a>4.2 附件的总金额</h2><p>select sum(cnumber*price) as exttotal from ext_cproduct_c<br>       where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)</p>
+<h2 id="4-3最终"><a href="#4-3最终" class="headerlink" title="4.3最终"></a>4.3最终</h2><p>select<br>  (select count(<em>) from contract_product_c<br>  where contract_id=c.contract_id)  as cpnum,<br>  (select count(</em>) from ext_cproduct_c<br>          where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)<br>      ) as extnum,<br>  (<br>      nvl((select sum(cnumber<em>price) as cptotal from contract_product_c<br>      where contract_id =c.contract_id),0)<br>      +<br>      nvl(<br>      (select sum(cnumber</em>price) as exttotal from ext_cproduct_c<br>       where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id))<br>       ,0)<br>  ) as total_amount,<br>c.CONTRACT_ID,c.OFFEROR,c.CONTRACT_NO,c.SIGNING_DATE,c.INPUT_BY,c.CHECK_BY,c.INSPECTOR,c.IMPORT_NUM,c.CREQUEST,c.CUSTOM_NAME,c.DELIVERY_PERIOD,c.SHIP_TIME,c.TRADE_TERMS,c.REMARK,c.PRINT_STYLE,c.OLD_STATE,c.STATE,c.OUT_STATE</p>
+<p>from contract_c c</p>
+<h1 id="5-业务：购销合同查看【sql的强大】"><a href="#5-业务：购销合同查看【sql的强大】" class="headerlink" title="5.业务：购销合同查看【sql的强大】"></a>5.业务：购销合同查看【sql的强大】</h1><ol>
+<li><p>查看合同的主信息，查看合同下的货物信息，还要查看附件信息，货物和附件的信息要显示出它们的关联关系。</p>
+</li>
+<li><p>利用面对对象的关联关系来实现上面的需求非常简单。</p>
+</li>
+<li><p>合同、货物、附件、生产厂家构建复杂多级关联的SQL时原则<br>1） 挑选最小的结果集<br>2）    滚雪球（左连接），逐步往上加内容<br>3）    重复字段，需要起别名（mybatis）</p>
+</li>
+</ol>
+<h3 id="！在实际业务中几乎没有内连接的情况，直接就用左连接即可。"><a href="#！在实际业务中几乎没有内连接的情况，直接就用左连接即可。" class="headerlink" title="！在实际业务中几乎没有内连接的情况，直接就用左连接即可。"></a>！在实际业务中几乎没有内连接的情况，直接就用左连接即可。</h3><h2 id="最终实现业务的超长sql"><a href="#最终实现业务的超长sql" class="headerlink" title="最终实现业务的超长sql"></a>最终实现业务的超长sql</h2><pre><code>select 
+c.contract_id,c.offeror,c.contract_no,c.signing_date,c.input_by,c.check_by,c.inspector,c.total_amount,c.import_n    um,c.crequest,c.custom_name,c.delivery_period,c.ship_time,c.trade_terms,c.remark,c.print_style,c.old_state,c.sta    te,c.out_state,c.create_by,c.create_dept,c.create_time, 
+t.contract_product_id,t.product_no,t.product_image,t.product_desc,t.cnumber,t.out_number,t.loading_rate,t.box_num,t.packing_unit,t.price,t.amount,t.finished,t.exts,t.order_no,t.factory_id,t.full_name,t.factory_name,t.contacts,t.phone, t.ext_cproduct_id,     t.ctype,t.ext_product_no,t.ext_product_image,t.ext_product_desc,t.ext_cnumber,t.ext_packing_         unit,t.ext_price,t.ext_amount,t.product_request,
+ t.ext_order_no,
+ t.ext_factory_id,t.ext_full_name,t.ext_factory_name,t.ext_contacts,t.ext_phone
+
+from
+(
+  select 
+      contract_id,offeror,contract_no,signing_date,input_by,check_by,inspector,total_amount,import_num,crequest,custom_name,delivery_period,ship_time,trade_terms,remark,print_style,old_state,state,out_state,create_by,create_dept,create_time
+   from contract_c ) c left join (
+   select
+          cp.contract_product_id,cp.contract_id,
+          cp.product_no,cp.product_image,cp.product_desc,cp.cnumber,cp.out_number,cp.loading_rate,cp.box_num,cp.packing_unit,cp.price,cp.amount,cp.finished,cp.exts,cp.order_no,
+          cp.factory_id,cp.full_name,cp.factory_name,cp.contacts,cp.phone,
+
+          ext.ext_cproduct_id,
+          ext.ctype,ext.product_no as ext_product_no,ext.product_image as ext_product_image,ext.product_desc as ext_product_desc,
+          ext.cnumber as ext_cnumber,ext.packing_unit as ext_packing_unit,ext.price as ext_price,ext.amount as ext_amount,
+          ext.product_request,ext.order_no as ext_order_no,
+          ext.factory_id as ext_factory_id,ext.full_name as ext_full_name,ext.factory_name as ext_factory_name,ext.contacts as ext_contacts,ext.phone as ext_phone
+
+    from
+    (
+        select
+          cp.contract_product_id,cp.contract_id,
+          cp.product_no,cp.product_image,cp.product_desc,cp.cnumber,cp.out_number,cp.loading_rate,cp.box_num,cp.packing_unit,cp.price,cp.amount,cp.finished,cp.exts,cp.order_no,
+          f.factory_id,f.full_name,f.factory_name,f.contacts,f.phone
+        from
+        (select 
+        contract_product_id,contract_id,factory_id,
+        product_no,product_image,product_desc,cnumber,out_number,loading_rate,box_num,packing_unit,price,amount,finished,exts,order_no
+         from contract_product_c) cp
+        left join 
+        (select factory_id,full_name,factory_name,contacts,phone from factory_c) f
+        on cp.factory_id=f.factory_id
+    ) cp
+    left join
+    (
+        select
+          ext.ext_cproduct_id,ext.contract_product_id,
+          ext.ctype,ext.product_no,ext.product_image,ext.product_desc,ext.cnumber,ext.packing_unit,ext.price,ext.amount,ext.product_request,ext.order_no,
+          f.factory_id,f.full_name,f.factory_name,f.contacts,f.phone
+        from
+        (
+        select 
+            ext_cproduct_id,contract_product_id,factory_id,
+            ctype,product_no,product_image,product_desc,cnumber,packing_unit,price,amount,product_request,order_no
+         from ext_cproduct_c 
+        ) ext
+        left join 
+        (select factory_id,full_name,factory_name,contacts,phone from factory_c) f
+        on ext.factory_id=f.factory_id
+    ) ext
+    on cp.contract_product_id=ext.contract_product_id) t on c.contract_id=t.contract_id where c.contract_id=#{contractId} 
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/jk3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -334,155 +545,6 @@
 <h2 id="3-部门表的编码有业务规则"><a href="#3-部门表的编码有业务规则" class="headerlink" title="3.部门表的编码有业务规则"></a>3.部门表的编码有业务规则</h2><p>001总部<br>001004 财务部<br>001005 软件部<br>001004001 社保组<br>001004002 工资组<br>001005001 杰信组<br>编码3位为一层</p>
 <h2 id="4-跨部门跨人员权限控制（特殊的情况，大型企业）"><a href="#4-跨部门跨人员权限控制（特殊的情况，大型企业）" class="headerlink" title="4.跨部门跨人员权限控制（特殊的情况，大型企业）"></a>4.跨部门跨人员权限控制（特殊的情况，大型企业）</h2><h3 id="举例：副总（分管），分管领导业务交叉"><a href="#举例：副总（分管），分管领导业务交叉" class="headerlink" title="举例：副总（分管），分管领导业务交叉"></a>举例：副总（分管），分管领导业务交叉</h3><p><img src="/images/xldqx.png" alt="Alt text"></p>
 <p>单独加表实现<br>Where条件 create_dept in (当前登录者配置的管理的部门集合)<br>            Or<br>            Create_by in (当前登录者配置的管理的人员集合)</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/jk1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FangChao.Qu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiangImg.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FangChao.Qu Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/19/jk1/" itemprop="url">
-                  基于SSM的商贸平台项目（第一天）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T09:26:46+08:00">
-                2017-05-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-用例图"><a href="#1-用例图" class="headerlink" title="1.用例图"></a>1.用例图</h1><ul>
-<li></li>
-</ul>
-<ol>
-<li>角色：代表系统中的一类用户</li>
-<li>用例：代表业务功能</li>
-<li>连线关系：哪个角色操作哪些用例</li>
-</ol>
-<p><img src="/images/ylt.png" alt="Alt text"></p>
-<p>画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。</p>
-<h1 id="2-PowerDesign数据库建模，Oracle-设置"><a href="#2-PowerDesign数据库建模，Oracle-设置" class="headerlink" title="2.PowerDesign数据库建模，Oracle 设置"></a>2.PowerDesign数据库建模，Oracle 设置</h1><p>-</p>
-<h2 id="2-1创建一个账号"><a href="#2-1创建一个账号" class="headerlink" title="2.1创建一个账号"></a>2.1创建一个账号</h2><p><img src="/images/1.png" alt="Alt text"></p>
-<h2 id="2-2授权"><a href="#2-2授权" class="headerlink" title="2.2授权"></a>2.2授权</h2><p><img src="/images/2.png" alt="Alt text"></p>
-<h2 id="2-3使用自己创建的账号登陆"><a href="#2-3使用自己创建的账号登陆" class="headerlink" title="2.3使用自己创建的账号登陆"></a>2.3使用自己创建的账号登陆</h2><p><img src="/images/3.png" alt="Alt text"></p>
-<h2 id="2-4PD建模"><a href="#2-4PD建模" class="headerlink" title="2.4PD建模"></a>2.4PD建模</h2><p><img src="/images/jm.png" alt="Alt text"></p>
-<h1 id="3-系统功能结构图"><a href="#3-系统功能结构图" class="headerlink" title="3.系统功能结构图"></a>3.系统功能结构图</h1><p>-</p>
-<ol>
-<li>功能点（分层，主次）演化成主菜单，左侧菜单，功能点</li>
-<li>了解系统的所有功能</li>
-<li>按功能点分配工作</li>
-<li>用户报价的依据（按模块报价）</li>
-</ol>
-<p><img src="/images/xtgnjg.png" alt="Alt text"></p>
-<h1 id="4-系统架构"><a href="#4-系统架构" class="headerlink" title="4.系统架构"></a>4.系统架构</h1><ul>
-<li>springmvc+spring3.2.6+mybatis+oracle11g/mysql+maven</li>
-</ul>
-<p><img src="/images/xtjg.png" alt="Alt text"></p>
-<h1 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h1><p>-</p>
-<ol>
-<li>首先感谢网上的学习资料</li>
-<li>学会项目开发前的前期工作</li>
-</ol>
 
           
         
@@ -638,6 +700,155 @@
 <h3 id="2-恢复"><a href="#2-恢复" class="headerlink" title="2.恢复"></a>2.恢复</h3><p><img src="/images/hf.png" alt="Alt text"></p>
 <p>3.SQL形式备份，备份不能含有大字段，在导入时，不直接用工具，直接拷贝sql语句，进行执行</p>
 <p><img src="/images/bfsql.png" alt="Alt text"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/jk1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/19/jk1/" itemprop="url">
+                  基于SSM的商贸平台项目（第一天）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T09:26:46+08:00">
+                2017-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-用例图"><a href="#1-用例图" class="headerlink" title="1.用例图"></a>1.用例图</h1><ul>
+<li></li>
+</ul>
+<ol>
+<li>角色：代表系统中的一类用户</li>
+<li>用例：代表业务功能</li>
+<li>连线关系：哪个角色操作哪些用例</li>
+</ol>
+<p><img src="/images/ylt.png" alt="Alt text"></p>
+<p>画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。</p>
+<h1 id="2-PowerDesign数据库建模，Oracle-设置"><a href="#2-PowerDesign数据库建模，Oracle-设置" class="headerlink" title="2.PowerDesign数据库建模，Oracle 设置"></a>2.PowerDesign数据库建模，Oracle 设置</h1><p>-</p>
+<h2 id="2-1创建一个账号"><a href="#2-1创建一个账号" class="headerlink" title="2.1创建一个账号"></a>2.1创建一个账号</h2><p><img src="/images/1.png" alt="Alt text"></p>
+<h2 id="2-2授权"><a href="#2-2授权" class="headerlink" title="2.2授权"></a>2.2授权</h2><p><img src="/images/2.png" alt="Alt text"></p>
+<h2 id="2-3使用自己创建的账号登陆"><a href="#2-3使用自己创建的账号登陆" class="headerlink" title="2.3使用自己创建的账号登陆"></a>2.3使用自己创建的账号登陆</h2><p><img src="/images/3.png" alt="Alt text"></p>
+<h2 id="2-4PD建模"><a href="#2-4PD建模" class="headerlink" title="2.4PD建模"></a>2.4PD建模</h2><p><img src="/images/jm.png" alt="Alt text"></p>
+<h1 id="3-系统功能结构图"><a href="#3-系统功能结构图" class="headerlink" title="3.系统功能结构图"></a>3.系统功能结构图</h1><p>-</p>
+<ol>
+<li>功能点（分层，主次）演化成主菜单，左侧菜单，功能点</li>
+<li>了解系统的所有功能</li>
+<li>按功能点分配工作</li>
+<li>用户报价的依据（按模块报价）</li>
+</ol>
+<p><img src="/images/xtgnjg.png" alt="Alt text"></p>
+<h1 id="4-系统架构"><a href="#4-系统架构" class="headerlink" title="4.系统架构"></a>4.系统架构</h1><ul>
+<li>springmvc+spring3.2.6+mybatis+oracle11g/mysql+maven</li>
+</ul>
+<p><img src="/images/xtjg.png" alt="Alt text"></p>
+<h1 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h1><p>-</p>
+<ol>
+<li>首先感谢网上的学习资料</li>
+<li>学会项目开发前的前期工作</li>
+</ol>
 
           
         
@@ -1120,7 +1331,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
