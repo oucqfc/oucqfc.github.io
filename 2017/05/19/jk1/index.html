@@ -87,41 +87,75 @@
 
 
 
-<meta name="description" content="1.开发规范1.1数据库设计的规范
-数据库设计的规范
-数据库表和字段都大写
-表都要加业务后缀，例如_C客户表 _B基础表 _P权限表
-必须有主键，主键是表名去掉业务后缀，加_ID，大多表的主键使用UUID
-字段多个单词时，全大写，用下划线隔开
-类型INT/LONG/DOUBLE/TIMESTAMP/CHAR/VARCHAR2 尽量化在这几个类型中，这样数据库设计相当简单
-排序号定死名称ORDER_">
+<meta name="description" content="1.用例图
+
+
+
+角色：代表系统中的一类用户
+用例：代表业务功能
+连线关系：哪个角色操作哪些用例
+
+
+画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。
+2.PowerDesign数据库建模，Oracle 设置-
+2.1创建一个账号
+2.2授权
+2.3使用自己创建的账号登陆
+2.4PD建模
+3.系统功能结构图-
+
+功能点（分层，主次）演化成主菜单，左侧菜单，功能点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于SSM的商贸平台项目（第二天）">
+<meta property="og:title" content="基于SSM的商贸平台项目（第一天）">
 <meta property="og:url" content="http://yoursite.com/2017/05/19/jk1/index.html">
 <meta property="og:site_name" content="FangChao.Qu Blog">
-<meta property="og:description" content="1.开发规范1.1数据库设计的规范
-数据库设计的规范
-数据库表和字段都大写
-表都要加业务后缀，例如_C客户表 _B基础表 _P权限表
-必须有主键，主键是表名去掉业务后缀，加_ID，大多表的主键使用UUID
-字段多个单词时，全大写，用下划线隔开
-类型INT/LONG/DOUBLE/TIMESTAMP/CHAR/VARCHAR2 尽量化在这几个类型中，这样数据库设计相当简单
-排序号定死名称ORDER_">
-<meta property="og:image" content="http://yoursite.com/images/bf.png">
-<meta property="og:image" content="http://yoursite.com/images/hf.png">
-<meta property="og:image" content="http://yoursite.com/images/bfsql.png">
-<meta property="og:updated_time" content="2017-05-19T02:28:28.943Z">
+<meta property="og:description" content="1.用例图
+
+
+
+角色：代表系统中的一类用户
+用例：代表业务功能
+连线关系：哪个角色操作哪些用例
+
+
+画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。
+2.PowerDesign数据库建模，Oracle 设置-
+2.1创建一个账号
+2.2授权
+2.3使用自己创建的账号登陆
+2.4PD建模
+3.系统功能结构图-
+
+功能点（分层，主次）演化成主菜单，左侧菜单，功能点">
+<meta property="og:image" content="http://yoursite.com/images/ylt.png">
+<meta property="og:image" content="http://yoursite.com/images/1.png">
+<meta property="og:image" content="http://yoursite.com/images/2.png">
+<meta property="og:image" content="http://yoursite.com/images/3.png">
+<meta property="og:image" content="http://yoursite.com/images/jm.png">
+<meta property="og:image" content="http://yoursite.com/images/xtgnjg.png">
+<meta property="og:image" content="http://yoursite.com/images/xtjg.png">
+<meta property="og:updated_time" content="2017-05-19T02:36:22.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于SSM的商贸平台项目（第二天）">
-<meta name="twitter:description" content="1.开发规范1.1数据库设计的规范
-数据库设计的规范
-数据库表和字段都大写
-表都要加业务后缀，例如_C客户表 _B基础表 _P权限表
-必须有主键，主键是表名去掉业务后缀，加_ID，大多表的主键使用UUID
-字段多个单词时，全大写，用下划线隔开
-类型INT/LONG/DOUBLE/TIMESTAMP/CHAR/VARCHAR2 尽量化在这几个类型中，这样数据库设计相当简单
-排序号定死名称ORDER_">
-<meta name="twitter:image" content="http://yoursite.com/images/bf.png">
+<meta name="twitter:title" content="基于SSM的商贸平台项目（第一天）">
+<meta name="twitter:description" content="1.用例图
+
+
+
+角色：代表系统中的一类用户
+用例：代表业务功能
+连线关系：哪个角色操作哪些用例
+
+
+画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。
+2.PowerDesign数据库建模，Oracle 设置-
+2.1创建一个账号
+2.2授权
+2.3使用自己创建的账号登陆
+2.4PD建模
+3.系统功能结构图-
+
+功能点（分层，主次）演化成主菜单，左侧菜单，功能点">
+<meta name="twitter:image" content="http://yoursite.com/images/ylt.png">
 
 
 
@@ -155,7 +189,7 @@
 
 
 
-  <title> 基于SSM的商贸平台项目（第二天） | FangChao.Qu Blog </title>
+  <title> 基于SSM的商贸平台项目（第一天） | FangChao.Qu Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +329,7 @@
             
             
               
-                基于SSM的商贸平台项目（第二天）
+                基于SSM的商贸平台项目（第一天）
               
             
           </h1>
@@ -346,44 +380,38 @@
       
 
       
-        <h1 id="1-开发规范"><a href="#1-开发规范" class="headerlink" title="1.开发规范"></a>1.开发规范</h1><h2 id="1-1数据库设计的规范"><a href="#1-1数据库设计的规范" class="headerlink" title="1.1数据库设计的规范"></a>1.1数据库设计的规范</h2><ol>
-<li>数据库设计的规范</li>
-<li>数据库表和字段都大写</li>
-<li>表都要加业务后缀，例如_C客户表 _B基础表 _P权限表</li>
-<li>必须有主键，主键是表名去掉业务后缀，加_ID，大多表的主键使用UUID</li>
-<li>字段多个单词时，全大写，用下划线隔开</li>
-<li>类型INT/LONG/DOUBLE/TIMESTAMP/CHAR/VARCHAR2 尽量化在这几个类型中，这样数据库设计相当简单</li>
-<li>排序号定死名称ORDER_NO</li>
-<li>权限两个字段CREATE_BY创建人，CREATE_DEPT创建部门</li>
-<li>记录创建时间CREATE_TIME<h2 id="1-2代码的开发规范"><a href="#1-2代码的开发规范" class="headerlink" title="1.2代码的开发规范"></a>1.2代码的开发规范</h2></li>
-<li>将静态资源之间放在webapps下；将动态资源需要验证权限放在WEB-INF/pages（安全）</li>
-<li>类文件放在src/main/java下；资源文件src/main/resources；web文件放在src/main/webapp下</li>
-<li>cn.itcast.jk.domain    存放所有实体文件PO</li>
-<li>cn.itcast.jk.dao 存放所有dao的接口和实现类，业务接口必须继承BaseDao接口，业务的实现类必须继承BaseDaoImpl实现类。</li>
-<li>cn.itcast.jk.dao 存放所有的service接口和实现类，无需继承。</li>
-<li>cn.itcast.jk.controller 存放所有springmvc 的controller，它不必须继承BaseController；它创建两层目录结构，一层是大模块名称，第二层是小模块名称，业务内容都放在下面。</li>
-<li>jsp，它放在WEB-INF/pages目录下，也创建两级目录，第一层就是大模块名称，第二层是小模块名称。</li>
-<li>webapp/components它第三方组件的目录，例如jQuery</li>
-<li>webapp/js/common.js 它是整个项目公用的js</li>
-<li>webapp/mak/xlsprint excel报表的模板文件</li>
+        <h1 id="1-用例图"><a href="#1-用例图" class="headerlink" title="1.用例图"></a>1.用例图</h1><ul>
+<li></li>
+</ul>
+<ol>
+<li>角色：代表系统中的一类用户</li>
+<li>用例：代表业务功能</li>
+<li>连线关系：哪个角色操作哪些用例</li>
 </ol>
-<h2 id="1-3数据库设计"><a href="#1-3数据库设计" class="headerlink" title="1.3数据库设计"></a>1.3数据库设计</h2><h3 id="数据库设计基础原则：三范式"><a href="#数据库设计基础原则：三范式" class="headerlink" title="数据库设计基础原则：三范式"></a>数据库设计基础原则：三范式</h3><ol>
-<li>表必须有主键</li>
-<li>字段内容不能是其他的字段加工而成</li>
-<li>行数据不能相同</li>
-</ol>
-<h3 id="现今业界主流数据库设计原则：反三范式"><a href="#现今业界主流数据库设计原则：反三范式" class="headerlink" title="现今业界主流数据库设计原则：反三范式"></a>现今业界主流数据库设计原则：反三范式</h3><ol>
-<li>表不是必须有主键</li>
-<li>字段存一些加工后的中间的结果，冗余设计</li>
-<li>记录冗余</li>
-</ol>
-<p>三范式追求的目标存储空间尽量小；反三范式追求的目标是查询速度。<br>创建数据库设计时首先按三范式设计，然后局部优化。</p>
+<p><img src="/images/ylt.png" alt="Alt text"></p>
 <p>画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。</p>
-<h1 id="2-Oracle数据库备份和恢复"><a href="#2-Oracle数据库备份和恢复" class="headerlink" title="2.Oracle数据库备份和恢复"></a>2.Oracle数据库备份和恢复</h1><p>-</p>
-<h3 id="1-备份"><a href="#1-备份" class="headerlink" title="1.备份"></a>1.备份</h3><p><img src="/images/bf.png" alt="Alt text"></p>
-<h3 id="2-恢复"><a href="#2-恢复" class="headerlink" title="2.恢复"></a>2.恢复</h3><p><img src="/images/hf.png" alt="Alt text"></p>
-<p>3.SQL形式备份，备份不能含有大字段，在导入时，不直接用工具，直接拷贝sql语句，进行执行</p>
-<p><img src="/images/bfsql.png" alt="Alt text"></p>
+<h1 id="2-PowerDesign数据库建模，Oracle-设置"><a href="#2-PowerDesign数据库建模，Oracle-设置" class="headerlink" title="2.PowerDesign数据库建模，Oracle 设置"></a>2.PowerDesign数据库建模，Oracle 设置</h1><p>-</p>
+<h2 id="2-1创建一个账号"><a href="#2-1创建一个账号" class="headerlink" title="2.1创建一个账号"></a>2.1创建一个账号</h2><p><img src="/images/1.png" alt="Alt text"></p>
+<h2 id="2-2授权"><a href="#2-2授权" class="headerlink" title="2.2授权"></a>2.2授权</h2><p><img src="/images/2.png" alt="Alt text"></p>
+<h2 id="2-3使用自己创建的账号登陆"><a href="#2-3使用自己创建的账号登陆" class="headerlink" title="2.3使用自己创建的账号登陆"></a>2.3使用自己创建的账号登陆</h2><p><img src="/images/3.png" alt="Alt text"></p>
+<h2 id="2-4PD建模"><a href="#2-4PD建模" class="headerlink" title="2.4PD建模"></a>2.4PD建模</h2><p><img src="/images/jm.png" alt="Alt text"></p>
+<h1 id="3-系统功能结构图"><a href="#3-系统功能结构图" class="headerlink" title="3.系统功能结构图"></a>3.系统功能结构图</h1><p>-</p>
+<ol>
+<li>功能点（分层，主次）演化成主菜单，左侧菜单，功能点</li>
+<li>了解系统的所有功能</li>
+<li>按功能点分配工作</li>
+<li>用户报价的依据（按模块报价）</li>
+</ol>
+<p><img src="/images/xtgnjg.png" alt="Alt text"></p>
+<h1 id="4-系统架构"><a href="#4-系统架构" class="headerlink" title="4.系统架构"></a>4.系统架构</h1><ul>
+<li>springmvc+spring3.2.6+mybatis+oracle11g/mysql+maven</li>
+</ul>
+<p><img src="/images/xtjg.png" alt="Alt text"></p>
+<h1 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h1><p>-</p>
+<ol>
+<li>首先感谢网上的学习资料</li>
+<li>学会项目开发前的前期工作</li>
+</ol>
 
       
     </div>
@@ -420,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/blog1/" rel="next" title="基于libSVN的图像块分类及标定">
-                <i class="fa fa-chevron-left"></i> 基于libSVN的图像块分类及标定
+              <a href="/2017/05/19/jk2/" rel="next" title="基于SSM的商贸平台项目（第二天）">
+                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第二天）
               </a>
             
           </div>
@@ -429,10 +457,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/19/jk2/" rel="prev" title="基于SSM的商贸平台项目（第一天）">
-                基于SSM的商贸平台项目（第一天） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-开发规范"><span class="nav-number">1.</span> <span class="nav-text">1.开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1数据库设计的规范"><span class="nav-number">1.1.</span> <span class="nav-text">1.1数据库设计的规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2代码的开发规范"><span class="nav-number">1.2.</span> <span class="nav-text">1.2代码的开发规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3数据库设计"><span class="nav-number">1.3.</span> <span class="nav-text">1.3数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库设计基础原则：三范式"><span class="nav-number">1.3.1.</span> <span class="nav-text">数据库设计基础原则：三范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现今业界主流数据库设计原则：反三范式"><span class="nav-number">1.3.2.</span> <span class="nav-text">现今业界主流数据库设计原则：反三范式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Oracle数据库备份和恢复"><span class="nav-number">2.</span> <span class="nav-text">2.Oracle数据库备份和恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-备份"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-恢复"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.恢复</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-用例图"><span class="nav-number">1.</span> <span class="nav-text">1.用例图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-PowerDesign数据库建模，Oracle-设置"><span class="nav-number">2.</span> <span class="nav-text">2.PowerDesign数据库建模，Oracle 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1创建一个账号"><span class="nav-number">2.1.</span> <span class="nav-text">2.1创建一个账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2授权"><span class="nav-number">2.2.</span> <span class="nav-text">2.2授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3使用自己创建的账号登陆"><span class="nav-number">2.3.</span> <span class="nav-text">2.3使用自己创建的账号登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4PD建模"><span class="nav-number">2.4.</span> <span class="nav-text">2.4PD建模</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-系统功能结构图"><span class="nav-number">3.</span> <span class="nav-text">3.系统功能结构图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-系统架构"><span class="nav-number">4.</span> <span class="nav-text">4.系统架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经验总结"><span class="nav-number">5.</span> <span class="nav-text">经验总结</span></a></li></ol></div>
             
 
           </div>
