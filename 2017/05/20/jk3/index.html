@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Java Web," />
 
 
 
@@ -87,31 +87,21 @@
 
 
 
-<meta name="description" content="Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）
-安装git
-从https://git-for-windows.github.io下载，然后按默认选项安装即可。安装完成后，在开始菜单里找到“Git”-&amp;gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！
-
-
-安装Node.js-http://www.runoob.com/nodejs/nodejs-i">
+<meta name="description" content="细粒度权限
+1.日常权限框架：基于角色权限，用户、角色、权限（URL、主菜单、左侧菜单、按钮）– 2.数据权限：纵向的数据权限过滤：对数据进行过滤2.1本人（专责）：登录后只能看到自己的信息Where条件 create_by = #{当前登录者id}2.2部门（集团公司）：登录后登录人是经理级别A.只能看本部门Where条件 create_dept=#{当前登录者所在的部门}B.只能看到本部门和直">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.js+Hexo+Git搭建个人博客心路历程">
-<meta property="og:url" content="http://yoursite.com/2017/03/07/dajianlicheng/index.html">
+<meta property="og:title" content="基于SSM的商贸平台项目（第三天）">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/jk3/index.html">
 <meta property="og:site_name" content="FangChao.Qu Blog">
-<meta property="og:description" content="Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）
-安装git
-从https://git-for-windows.github.io下载，然后按默认选项安装即可。安装完成后，在开始菜单里找到“Git”-&amp;gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！
-
-
-安装Node.js-http://www.runoob.com/nodejs/nodejs-i">
-<meta property="og:updated_time" content="2017-03-07T02:30:38.128Z">
+<meta property="og:description" content="细粒度权限
+1.日常权限框架：基于角色权限，用户、角色、权限（URL、主菜单、左侧菜单、按钮）– 2.数据权限：纵向的数据权限过滤：对数据进行过滤2.1本人（专责）：登录后只能看到自己的信息Where条件 create_by = #{当前登录者id}2.2部门（集团公司）：登录后登录人是经理级别A.只能看本部门Where条件 create_dept=#{当前登录者所在的部门}B.只能看到本部门和直">
+<meta property="og:image" content="http://yoursite.com/images/xldqx.png">
+<meta property="og:updated_time" content="2017-05-19T02:45:25.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.js+Hexo+Git搭建个人博客心路历程">
-<meta name="twitter:description" content="Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）
-安装git
-从https://git-for-windows.github.io下载，然后按默认选项安装即可。安装完成后，在开始菜单里找到“Git”-&amp;gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！
-
-
-安装Node.js-http://www.runoob.com/nodejs/nodejs-i">
+<meta name="twitter:title" content="基于SSM的商贸平台项目（第三天）">
+<meta name="twitter:description" content="细粒度权限
+1.日常权限框架：基于角色权限，用户、角色、权限（URL、主菜单、左侧菜单、按钮）– 2.数据权限：纵向的数据权限过滤：对数据进行过滤2.1本人（专责）：登录后只能看到自己的信息Where条件 create_by = #{当前登录者id}2.2部门（集团公司）：登录后登录人是经理级别A.只能看本部门Where条件 create_dept=#{当前登录者所在的部门}B.只能看到本部门和直">
+<meta name="twitter:image" content="http://yoursite.com/images/xldqx.png">
 
 
 
@@ -139,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/07/dajianlicheng/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/20/jk3/"/>
 
 
 
 
 
-  <title> Node.js+Hexo+Git搭建个人博客心路历程 | FangChao.Qu Blog </title>
+  <title> 基于SSM的商贸平台项目（第三天） | FangChao.Qu Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/07/dajianlicheng/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/jk3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FangChao.Qu">
@@ -285,7 +275,7 @@
             
             
               
-                Node.js+Hexo+Git搭建个人博客心路历程
+                基于SSM的商贸平台项目（第三天）
               
             
           </h1>
@@ -300,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T09:26:46+08:00">
-                2017-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T09:26:46+08:00">
+                2017-05-20
               </time>
             
 
@@ -336,33 +326,13 @@
       
 
       
-        <h2 id="Node-js-Hexo-Git搭建个人博客心路历程（感谢小勇哥）"><a href="#Node-js-Hexo-Git搭建个人博客心路历程（感谢小勇哥）" class="headerlink" title="Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）"></a>Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）</h2><ul>
-<li>安装git</li>
-<li>从<a href="https://git-for-windows.github.io" target="_blank" rel="external">https://git-for-windows.github.io</a>下载，然后按默认选项安装即可。<br>安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</li>
+        <h1 id="细粒度权限"><a href="#细粒度权限" class="headerlink" title="细粒度权限"></a>细粒度权限</h1><ul>
+<li><h2 id="1-日常权限框架："><a href="#1-日常权限框架：" class="headerlink" title="1.日常权限框架："></a>1.日常权限框架：</h2>基于角色权限，用户、角色、权限（URL、主菜单、左侧菜单、按钮）– <h2 id="2-数据权限："><a href="#2-数据权限：" class="headerlink" title="2.数据权限："></a>2.数据权限：</h2>纵向的数据权限过滤：对数据进行过滤<h3 id="2-1本人（专责）：登录后只能看到自己的信息"><a href="#2-1本人（专责）：登录后只能看到自己的信息" class="headerlink" title="2.1本人（专责）：登录后只能看到自己的信息"></a>2.1本人（专责）：登录后只能看到自己的信息</h3>Where条件 create_by = #{当前登录者id}<h3 id="2-2部门（集团公司）：登录后登录人是经理级别"><a href="#2-2部门（集团公司）：登录后登录人是经理级别" class="headerlink" title="2.2部门（集团公司）：登录后登录人是经理级别"></a>2.2部门（集团公司）：登录后登录人是经理级别</h3><h4 id="A-只能看本部门"><a href="#A-只能看本部门" class="headerlink" title="A.只能看本部门"></a>A.只能看本部门</h4>Where条件 create_dept=#{当前登录者所在的部门}<h4 id="B-只能看到本部门和直属下属的数据-总经理-财务部-社保组"><a href="#B-只能看到本部门和直属下属的数据-总经理-财务部-社保组" class="headerlink" title="B.只能看到本部门和直属下属的数据     总经理-财务部-社保组"></a>B.只能看到本部门和直属下属的数据     总经理-财务部-社保组</h4>Where条件  create_dept=#{当前登录者所在的部门}<pre><code>And create_dept like #{当前登录者所在部门}？？？
+</code></pre><h4 id="C-看到所有下属的数据-财务副总-财务部-社保组"><a href="#C-看到所有下属的数据-财务副总-财务部-社保组" class="headerlink" title="C.看到所有下属的数据         财务副总-财务部-社保组"></a>C.看到所有下属的数据         财务副总-财务部-社保组</h4>Where条件 create_dept like #{当前登录者所在部门id}%</li>
 </ul>
-<ul>
-<li><p>安装Node.js<br>-<br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">http://www.runoob.com/nodejs/nodejs-install-setup.html</a>详细步骤</p>
-</li>
-<li><p>安装 Hexo<br>-<br>在git bush 里面操作</p>
-</li>
-</ul>
-<ol>
-<li>$ cd d:/hexo</li>
-<li>$ npm install hexo-cli -g</li>
-<li>$ hexo init blog</li>
-<li>$ cd blog</li>
-<li>$ npm install</li>
-<li>$ hexo g # 或者hexo generate</li>
-<li>$ hexo s # 或者hexo server，可以在<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 查看<br>-这里有必要提下Hexo常用的几个命令：<br>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹<br>hexo server (hexo s) 启动本地web服务，用于博客的预览<br>hexo deploy (hexo d) 部署播客到远端（比如github, heroku等平台）</li>
-</ol>
-<ul>
-<li>配置到GitHub<br>-<br>创建本地ssh：</li>
-</ul>
-<ol>
-<li>在git bush 下输入 ssh-keygen -t rsa -C “1151958516@qq.com”，然后一路回车下去；</li>
-<li>windows应该是（C:\Documents and Settings\Administrator.ssh （或者 C:\Users\自己电脑用户名.ssh）中）。</li>
-<li>在github中的settings 中打开ssh选项 ，添加ssh ，然后用记事本打开id_rsa.pub，将里面的全部代码复制到github的SSH中；</li>
-</ol>
+<h2 id="3-部门表的编码有业务规则"><a href="#3-部门表的编码有业务规则" class="headerlink" title="3.部门表的编码有业务规则"></a>3.部门表的编码有业务规则</h2><p>001总部<br>001004 财务部<br>001005 软件部<br>001004001 社保组<br>001004002 工资组<br>001005001 杰信组<br>编码3位为一层</p>
+<h2 id="4-跨部门跨人员权限控制（特殊的情况，大型企业）"><a href="#4-跨部门跨人员权限控制（特殊的情况，大型企业）" class="headerlink" title="4.跨部门跨人员权限控制（特殊的情况，大型企业）"></a>4.跨部门跨人员权限控制（特殊的情况，大型企业）</h2><h3 id="举例：副总（分管），分管领导业务交叉"><a href="#举例：副总（分管），分管领导业务交叉" class="headerlink" title="举例：副总（分管），分管领导业务交叉"></a>举例：副总（分管），分管领导业务交叉</h3><p><img src="/images/xldqx.png" alt="Alt text"></p>
+<p>单独加表实现<br>Where条件 create_dept in (当前登录者配置的管理的部门集合)<br>            Or<br>            Create_by in (当前登录者配置的管理的人员集合)</p>
 
       
     </div>
@@ -386,7 +356,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Java-Web/" rel="tag"># Java Web</a>
           
         </div>
       
@@ -399,15 +369,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/19/jk1/" rel="next" title="基于SSM的商贸平台项目（第一天）">
+                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第一天）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/10/cv1/" rel="prev" title="基于libSVN的图像块分类及标定">
-                基于libSVN的图像块分类及标定 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-Hexo-Git搭建个人博客心路历程（感谢小勇哥）"><span class="nav-number">1.</span> <span class="nav-text">Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#细粒度权限"><span class="nav-number">1.</span> <span class="nav-text">细粒度权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-日常权限框架："><span class="nav-number">1.1.</span> <span class="nav-text">1.日常权限框架：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据权限："><span class="nav-number">1.2.</span> <span class="nav-text">2.数据权限：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1本人（专责）：登录后只能看到自己的信息"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1本人（专责）：登录后只能看到自己的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2部门（集团公司）：登录后登录人是经理级别"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2部门（集团公司）：登录后登录人是经理级别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-只能看本部门"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">A.只能看本部门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-只能看到本部门和直属下属的数据-总经理-财务部-社保组"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">B.只能看到本部门和直属下属的数据     总经理-财务部-社保组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-看到所有下属的数据-财务副总-财务部-社保组"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">C.看到所有下属的数据         财务副总-财务部-社保组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-部门表的编码有业务规则"><span class="nav-number">1.3.</span> <span class="nav-text">3.部门表的编码有业务规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-跨部门跨人员权限控制（特殊的情况，大型企业）"><span class="nav-number">1.4.</span> <span class="nav-text">4.跨部门跨人员权限控制（特殊的情况，大型企业）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#举例：副总（分管），分管领导业务交叉"><span class="nav-number">1.4.1.</span> <span class="nav-text">举例：副总（分管），分管领导业务交叉</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
