@@ -100,7 +100,7 @@ JXL，POI都是操作excelExcel一些企业小的应用都直接用excel来实�
 
 Jxl 它只能操作excel 2003版本，它导入导出数据量小时性能很高POI 它可以操作office系列软件word、excel、ppt、visio(画网络布局、家装)，在早期版本中它在导出海量数据时，容易崩溃。在新版本">
 <meta property="og:image" content="http://yoursite.com/images/51.png">
-<meta property="og:updated_time" content="2017-05-25T08:26:44.968Z">
+<meta property="og:updated_time" content="2017-05-31T01:29:00.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于SSM的商贸平台项目（第五天）">
 <meta name="twitter:description" content="1.POI解决什么问题
@@ -396,8 +396,9 @@ CellStyle customStyle = nCell.getCellStyle();
     &lt;version&gt;3.9&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre><h3 id="4-1-2-它解决思路："><a href="#4-1-2-它解决思路：" class="headerlink" title="4.1.2 它解决思路："></a>4.1.2 它解决思路：</h3><p>在打印过程中，已经加工完的对象，临时存到一个临时文件中，它采用xml临时文件。最终处理完时，将这些临时内容写入到最终的xlsx文件中。</p>
-<pre><code>public SXSSFWorkbook(int rowAccessWindowSize){
-    this(null /*workbook*/, rowAccessWindowSize);
+<pre><code>Workbook wb = new SXSSFWorkbook(100);    //创建excel文件，内存只有100条记录【关键语句】
+public SXSSFWorkbook(int rowAccessWindowSize){
+this(null /*workbook*/, rowAccessWindowSize);
 </code></pre><p>}<br>每rowAccessWindowSize条对象时，写一次缓存。</p>
 <p>！！！！ 这个对象不能使用模板。只能用于到数据量的导出。（没有格式）</p>
 <h1 id="5-CSV文件，导入到数据库中"><a href="#5-CSV文件，导入到数据库中" class="headerlink" title="5.    CSV文件，导入到数据库中"></a>5.    CSV文件，导入到数据库中</h1><p>CSV是一个标准的导入导出文件格式，实际是一个txt文件</p>
