@@ -87,46 +87,31 @@
 
 
 
-<meta name="description" content="基于opencv 3.1 自带的SVM的训练检测无人机
-处理正负样本（负样本为正样本数的3倍）
+<meta name="description" content="#1.基于opencv 3.1 自带的SVM的训练检测无人机
+##1.1处理正负样本（负样本为正样本数的3倍）
 要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入的检测器的响亮就是3780+rho 总共3781个向量
-
-训练-训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
-
-测试-
-
-
-
-测试时，只需加载de">
+##1.2 训练
+训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
+##1.3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于opencv自带SVM的图像块分类及标定">
 <meta property="og:url" content="http://yoursite.com/2017/04/25/blog1/index.html">
 <meta property="og:site_name" content="FangChao.Qu Blog">
-<meta property="og:description" content="基于opencv 3.1 自带的SVM的训练检测无人机
-处理正负样本（负样本为正样本数的3倍）
+<meta property="og:description" content="#1.基于opencv 3.1 自带的SVM的训练检测无人机
+##1.1处理正负样本（负样本为正样本数的3倍）
 要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入的检测器的响亮就是3780+rho 总共3781个向量
-
-训练-训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
-
-测试-
-
-
-
-测试时，只需加载de">
-<meta property="og:updated_time" content="2017-05-25T06:38:22.871Z">
+##1.2 训练
+训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
+##1.3">
+<meta property="og:updated_time" content="2017-06-02T07:06:35.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于opencv自带SVM的图像块分类及标定">
-<meta name="twitter:description" content="基于opencv 3.1 自带的SVM的训练检测无人机
-处理正负样本（负样本为正样本数的3倍）
+<meta name="twitter:description" content="#1.基于opencv 3.1 自带的SVM的训练检测无人机
+##1.1处理正负样本（负样本为正样本数的3倍）
 要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入的检测器的响亮就是3780+rho 总共3781个向量
-
-训练-训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
-
-测试-
-
-
-
-测试时，只需加载de">
+##1.2 训练
+训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector
+##1.3">
 
 
 
@@ -351,22 +336,18 @@
       
 
       
-        <h2 id="基于opencv-3-1-自带的SVM的训练检测无人机"><a href="#基于opencv-3-1-自带的SVM的训练检测无人机" class="headerlink" title="基于opencv 3.1 自带的SVM的训练检测无人机"></a>基于opencv 3.1 自带的SVM的训练检测无人机</h2><ul>
-<li>处理正负样本（负样本为正样本数的3倍）</li>
-<li><p>要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入<br>的检测器的响亮就是3780+rho 总共3781个向量</p>
-</li>
-<li><p>训练<br>-<br>训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector</p>
-</li>
-<li><p>测试<br>-</p>
-</li>
-</ul>
+        <p>#1.基于opencv 3.1 自带的SVM的训练检测无人机</p>
+<p>##1.1处理正负样本（负样本为正样本数的3倍）</p>
+<p>要求64*128的训练集 ，为了是的训练之后的得到的模型有3780个特征向量，setSVMDetector函数要求输入<br>的检测器的响亮就是3780+rho 总共3781个向量</p>
+<p>##1.2 训练</p>
+<p>训练后得到 SVM_HOG.xml模型，该模型得到3781个向量作为detector</p>
+<p>##1.3 测试</p>
 <ol>
 <li>测试时，只需加载detector所在的txt文件，将他传给vector去检测即可。</li>
 <li>注意detectMultiScale函数耗时时间很长，hog_test.detectMultiScale(src, found, 0, Size(8, 8), Size(32, 32), 1.05, 2);注意调整其参数</li>
 </ol>
-<ul>
-<li>经验总结<br>-<br>1:学会了sourceTree的基本用法<br>克隆/新建：创建一个新仓库，或者从服务器克隆，或者加载本地已经有的<br>提交：git命令的commit，上传到本地仓库<br>检出：checkout，其实就是切换，切换不同分支，切换一个分支的不同版本<br>丢弃：回到最近一次add或者commit的状态。<br>暂存：git stash，手头工作没有完成的时候，保存一下现场<br>添加：add，把工作区的修改添加到暂缓区<br>获取和拉取：git fetch和git pull，获取是从远端获取最新版本到本地，但是不会自动合并，而拉取是会自动合并。fetch更安全一些，可以查看更新情况，然后决定是否合并。<br>推送：push,本地数据库的更新上传到远端。<br>分支：创建或者删除分支。<br>合并：分支的合并<br>标签：给每个版本定义个标签<br>Git工作流：一般master是总的主枝，每个人开发的时候都自己定义一个dev分支是自己的主枝，当没有问题的时候提交到master，然后每个人自己开发新功能的时候创建一个feature功能分支，修改BUG时要单独拿出一个BUG分支。<br>命令行模式：可以输入git命令<br>2:对于opencv的HOG+SVM的整体技术路线清楚了，可以进行单帧目标识别</li>
-</ul>
+<p>#2. 经验总结</p>
+<p>1:学会了sourceTree的基本用法<br>克隆/新建：创建一个新仓库，或者从服务器克隆，或者加载本地已经有的<br>提交：git命令的commit，上传到本地仓库<br>检出：checkout，其实就是切换，切换不同分支，切换一个分支的不同版本<br>丢弃：回到最近一次add或者commit的状态。<br>暂存：git stash，手头工作没有完成的时候，保存一下现场<br>添加：add，把工作区的修改添加到暂缓区<br>获取和拉取：git fetch和git pull，获取是从远端获取最新版本到本地，但是不会自动合并，而拉取是会自动合并。fetch更安全一些，可以查看更新情况，然后决定是否合并。<br>推送：push,本地数据库的更新上传到远端。<br>分支：创建或者删除分支。<br>合并：分支的合并<br>标签：给每个版本定义个标签<br>Git工作流：一般master是总的主枝，每个人开发的时候都自己定义一个dev分支是自己的主枝，当没有问题的时候提交到master，然后每个人自己开发新功能的时候创建一个feature功能分支，修改BUG时要单独拿出一个BUG分支。<br>命令行模式：可以输入git命令<br>2:对于opencv的HOG+SVM的整体技术路线清楚了，可以进行单帧目标识别</p>
 
       
     </div>
@@ -413,8 +394,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/19/jk1/" rel="prev" title="基于SSM的商贸平台项目（第一天）">
-                基于SSM的商贸平台项目（第一天） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/19/jk2/" rel="prev" title="基于SSM的商贸平台项目（第二天）">
+                基于SSM的商贸平台项目（第二天） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -462,17 +443,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiangImg.JPG"
@@ -487,7 +459,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -525,22 +497,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于opencv-3-1-自带的SVM的训练检测无人机"><span class="nav-number">1.</span> <span class="nav-text">基于opencv 3.1 自带的SVM的训练检测无人机</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
