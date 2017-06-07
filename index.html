@@ -250,6 +250,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/07/jk8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/07/jk8/" itemprop="url">
+                  基于SSM的商贸平台项目（第八天）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T09:26:46+08:00">
+                2017-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-设计方式"><a href="#1-设计方式" class="headerlink" title="1.设计方式"></a>1.设计方式</h1><h2 id="1-1打断设计："><a href="#1-1打断设计：" class="headerlink" title="1.1打断设计："></a>1.1打断设计：</h2><p>传统方式创建对象关联，当业务层级过多，查询效率极速下降，业界有个不成文的规定，在数据库表设计时，关联关系部超过4层。打断设计将业务多级进行分解，硬拆成多个块。具体实现就是通过一个字段来存储两个表之间的关系。存储主表的ID，将多个ID用特殊符号分割。</p>
+<p>##1.2数据搬家：（冗余，分次计算）<br>将合同下的部分信息直接放在报运下的货物表中，这样直接在报运的货物表中查询（无需关心是哪个合同的货物信息，也无需关系货物部分信息和报运部分信息的对应）</p>
+<p>由于有分次报运的概念，因为一个货物可以分多次报运，一个合同下的货物信息，可能分多次报运，最终所有货物报运完成。例如：1000，第一次报运800，第二次报运200。不能将报运新增的7个字段，冗余到合同下的货物表中。</p>
+<p>报运的附件表实现了整体的数据搬家，为了后续业务在查询货物时，也可以直接查询到附件信息，主要是为财务业务服务。</p>
+<p>##1.3分次计算<br>当系统中有一个集中处理数据的地方，如果它非常耗时，我们对其要进行优化。例如：毛重、净重、体积信息。它会导致用户等待。我们对其进行优化，将集中计算分到不同的地方。我们将总的计算，分解到货物新增时，只计算一条。用户由于本身新增数据，他感觉要保存新增的数据，所以他能容忍稍微等待。在新增时程序动态计算冗余的内容。因为处理数据量极其小，造成处理速度很快，几乎用户感觉不到延迟。</p>
+<h1 id="2-特殊设计：一对一；"><a href="#2-特殊设计：一对一；" class="headerlink" title="2.特殊设计：一对一；"></a>2.特殊设计：一对一；</h1><p>1）    委托ID就是装箱ID，发票ID就是装箱ID，财务ID就是装箱ID。<br>2）    委托、发票、财务它们的主键既外键<br>无论获得一个什么ID，只要是装箱、委托、发票、财务其中之一，就可以获得任何一个它们的对象。</p>
+<p>#2.传递数据时，数据可以隐藏到同一个框中<br>实际开发中少量传递数据的方式。无需查询数据库，提高性能，缺点就需要手动拼串，解串。</p>
+<pre><code>// 拼接HTML片段
+public String getDivDataCreate(String[] contractIds) {
+    StringBuffer sBuf = new StringBuffer();
+    for (int i = 0; i &lt; contractIds.length; i++) {
+        Export export = exportDao.get(contractIds[i]);
+        sBuf.append(
+                &quot;&lt;input type=\&quot;checkbox\&quot; name=\&quot;exportIds\&quot; checked value=\&quot;&quot;)
+                .append(contractIds[i]).append(&quot;|&quot;)
+                .append(export.getCustomerContract())
+                .append(&quot;\&quot; class=\&quot;input\&quot;/&gt;&quot;);
+        sBuf.append(export.getCustomerContract()).append(&quot;&amp;nbsp;&amp;nbsp;&quot;);
+    }
+    return sBuf.toString();
+}
+
+// 拆串拼串
+private PackingList spellString(PackingList packingList) {
+    String _exportIds = &quot;&quot;;
+    String _exportNos = &quot;&quot;;
+
+    String[] _ids = packingList.getExportIds().split(&quot;,&quot;);
+    for (int i = 0; i &lt; _ids.length; i++) {
+        String[] _temids = _ids[i].split(&quot;\\|&quot;); // 正则表达式，转义
+        _exportIds += _temids[0] + &quot;|&quot;;
+        _exportNos += _temids[1] + &quot;|&quot;;
+    }
+    _exportIds = UtilFuns.delLastChar(_exportIds); // 去掉最后的“|”
+    _exportNos = UtilFuns.delLastChar(_exportNos);
+
+    packingList.setExportIds(_exportIds);
+    packingList.setExportNos(_exportNos);
+    return packingList;
+}
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/02/jk7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2352,150 +2509,13 @@ from
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/07/dajianlicheng/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FangChao.Qu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiangImg.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FangChao.Qu Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/07/dajianlicheng/" itemprop="url">
-                  Node.js+Hexo+Git搭建个人博客心路历程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T09:26:46+08:00">
-                2017-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Node-js-Hexo-Git搭建个人博客心路历程（感谢小勇哥）"><a href="#Node-js-Hexo-Git搭建个人博客心路历程（感谢小勇哥）" class="headerlink" title="Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）"></a>Node.js+Hexo+Git搭建个人博客心路历程（感谢小勇哥）</h1><p>##1. 安装git</p>
-<ul>
-<li>从<a href="https://git-for-windows.github.io" target="_blank" rel="external">https://git-for-windows.github.io</a>下载，然后按默认选项安装即可。<br>安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</li>
-</ul>
-<p>##2. 安装Node.js</p>
-<p><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">http://www.runoob.com/nodejs/nodejs-install-setup.html</a>详细步骤</p>
-<p>##3.安装 Hexo</p>
-<p>在git bush 里面操作</p>
-<ol>
-<li>$ cd d:/hexo</li>
-<li>$ npm install hexo-cli -g</li>
-<li>$ hexo init blog</li>
-<li>$ cd blog</li>
-<li>$ npm install</li>
-<li>$ hexo g # 或者hexo generate</li>
-<li>$ hexo s # 或者hexo server，可以在<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 查看<br>-这里有必要提下Hexo常用的几个命令：<br>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹<br>hexo server (hexo s) 启动本地web服务，用于博客的预览<br>hexo deploy (hexo d) 部署播客到远端（比如github, heroku等平台）</li>
-</ol>
-<p>##4.配置到GitHub</p>
-<p>创建本地ssh：</p>
-<ol>
-<li>在git bush 下输入 ssh-keygen -t rsa -C “1151958516@qq.com”，然后一路回车下去；</li>
-<li>windows应该是（C:\Documents and Settings\Administrator.ssh （或者 C:\Users\自己电脑用户名.ssh）中）。</li>
-<li>在github中的settings 中打开ssh选项 ，添加ssh ，然后用记事本打开id_rsa.pub，将里面的全部代码复制到github的SSH中；</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -2538,7 +2558,7 @@ from
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
