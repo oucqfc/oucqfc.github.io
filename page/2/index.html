@@ -250,6 +250,132 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/cv1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/10/cv1/" itemprop="url">
+                  基于libSVM的图像块分类及标定
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T09:26:46+08:00">
+                2017-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#基于libSVN的图像块分类及标定</p>
+<p>##1.安装opencv</p>
+<p>下载opencv.exe,安装，配置环境变量：OPENCV_HOME,Path</p>
+<p>##2.在VS2013配置opencv环境</p>
+<p>VC++directories，Linker中的input</p>
+<p>##3.vs2013集成QT5</p>
+<p>（转载自 <a href="http://blog.csdn.net/u013360881/article/details/50629876）" target="_blank" rel="external">http://blog.csdn.net/u013360881/article/details/50629876）</a><br>在Windows Host下，下载Qt 5.5.1 for Windows 64-bit (VS 2013, 823 MB) ；在Other downloads下，下载Visual Studio Add-in 1.2.4 for Qt5 (156 MB)  ，当然具体版本还需根据自己的实际情况来定，这里是以我的安装版本为例进行介绍的。</p>
+<p>安装顺序：最好先安装第一个，然后在安装后一个。</p>
+<p>配置：1、在VS中新建项目，命名为test，选择第一个应用平台，然后直接next即可；<br>           2、在菜单栏上有个Qt5，在其下拉菜单中找到Qt options-&gt;添加name和path，<br>name这里为VS2013_QT5.5.1,这个最好与安装的VS和QT版本一致；path为QT安装后的路径，路径末端一直到msvc2013_64即可；<br>           3、点击test项目右键找到Qt project setting后双击，选择最后一项版本，点击下拉菜单找到相应版本；<br>           4、项目属性 -&gt; 链接器 -&gt; 高级 -&gt; 目标计算机 -&gt; 将其值改为MachineX86；<br>                 配置管理器 -&gt; 平台 -&gt; 改为活动（X64）；<br>           5、项目属性 -&gt; VC++目录 -&gt; 包含目录 -&gt; 添加QT安装目录下include路径；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/07/dajianlicheng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -431,7 +557,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -444,7 +570,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
