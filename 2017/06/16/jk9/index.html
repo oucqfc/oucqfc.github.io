@@ -87,21 +87,54 @@
 
 
 
-<meta name="description" content="1.新的设计方式：打断设计在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。
-2.在jsp页面动态增加表格##2.1动态表格：innerHTML 实现往一个区域di">
+<meta name="description" content="1.让微软汗颜的图形报表思路：
+
+组织数据源
+拼接字符串，拼接为amchart官网Demo的html格式1.1饼形图：
+
+1.2柱状图
+1.3折线图
+2.异构数据库,让程序支持主流数据库切换
+程序开发时有要求：
+
+不能使用存储过程，不能使用规则rule，不能使用触发器；
+可以少量使用view。基于程序方便维护，程序通用性强，减少对数据库的依赖，增强程序代码的处理。也就是现今大多数软件公司都减少db">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于SSM的商贸平台项目（第七天）">
-<meta property="og:url" content="http://yoursite.com/2017/06/02/jk7/index.html">
+<meta property="og:title" content="基于SSM的商贸平台项目（第九天）">
+<meta property="og:url" content="http://yoursite.com/2017/06/16/jk9/index.html">
 <meta property="og:site_name" content="FangChao.Qu Blog">
-<meta property="og:description" content="1.新的设计方式：打断设计在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。
-2.在jsp页面动态增加表格##2.1动态表格：innerHTML 实现往一个区域di">
-<meta property="og:image" content="http://yoursite.com/images/71.png">
-<meta property="og:updated_time" content="2017-06-02T07:04:23.298Z">
+<meta property="og:description" content="1.让微软汗颜的图形报表思路：
+
+组织数据源
+拼接字符串，拼接为amchart官网Demo的html格式1.1饼形图：
+
+1.2柱状图
+1.3折线图
+2.异构数据库,让程序支持主流数据库切换
+程序开发时有要求：
+
+不能使用存储过程，不能使用规则rule，不能使用触发器；
+可以少量使用view。基于程序方便维护，程序通用性强，减少对数据库的依赖，增强程序代码的处理。也就是现今大多数软件公司都减少db">
+<meta property="og:image" content="http://yoursite.com/images/91.png">
+<meta property="og:image" content="http://yoursite.com/images/92.png">
+<meta property="og:image" content="http://yoursite.com/images/93.png">
+<meta property="og:image" content="http://yoursite.com/images/94.png">
+<meta property="og:updated_time" content="2017-06-16T08:53:53.212Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于SSM的商贸平台项目（第七天）">
-<meta name="twitter:description" content="1.新的设计方式：打断设计在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。
-2.在jsp页面动态增加表格##2.1动态表格：innerHTML 实现往一个区域di">
-<meta name="twitter:image" content="http://yoursite.com/images/71.png">
+<meta name="twitter:title" content="基于SSM的商贸平台项目（第九天）">
+<meta name="twitter:description" content="1.让微软汗颜的图形报表思路：
+
+组织数据源
+拼接字符串，拼接为amchart官网Demo的html格式1.1饼形图：
+
+1.2柱状图
+1.3折线图
+2.异构数据库,让程序支持主流数据库切换
+程序开发时有要求：
+
+不能使用存储过程，不能使用规则rule，不能使用触发器；
+可以少量使用view。基于程序方便维护，程序通用性强，减少对数据库的依赖，增强程序代码的处理。也就是现今大多数软件公司都减少db">
+<meta name="twitter:image" content="http://yoursite.com/images/91.png">
 
 
 
@@ -129,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/02/jk7/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/16/jk9/"/>
 
 
 
 
 
-  <title> 基于SSM的商贸平台项目（第七天） | FangChao.Qu Blog </title>
+  <title> 基于SSM的商贸平台项目（第九天） | FangChao.Qu Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/02/jk7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/jk9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FangChao.Qu">
@@ -275,7 +308,7 @@
             
             
               
-                基于SSM的商贸平台项目（第七天）
+                基于SSM的商贸平台项目（第九天）
               
             
           </h1>
@@ -290,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T09:26:46+08:00">
-                2017-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-16T09:26:46+08:00">
+                2017-06-16
               </time>
             
 
@@ -326,59 +359,27 @@
       
 
       
-        <h1 id="1-新的设计方式：打断设计"><a href="#1-新的设计方式：打断设计" class="headerlink" title="1.新的设计方式：打断设计"></a>1.新的设计方式：打断设计</h1><p>在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。</p>
-<h1 id="2-在jsp页面动态增加表格"><a href="#2-在jsp页面动态增加表格" class="headerlink" title="2.在jsp页面动态增加表格"></a>2.在jsp页面动态增加表格</h1><p>##2.1动态表格：<br>innerHTML 实现往一个区域div增加一段html代码，</p>
-<p>table,tr,td都用利用js动态插入</p>
-<p> <img src="/images/71.png" alt="Alt text"></p>
-<pre><code>/*实现动态增加一行*/
-function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, sizeLength, sizeWidth, sizeHeight, exPrice, tax) {
-
-    var _tmpSelect = &quot;&quot;;
-    var tableObj = document.getElementById(objId);        //得到表格对象
-    var rowLength = tableObj.rows.length;                //获取行的长度
-
-    oTR = tableObj.insertRow();                            //新增一行
-
-    oTD = oTR.insertCell(0);                            //新增单元格，下标从0开始
-    oTD.style.whiteSpace=&quot;nowrap&quot;;
-    oTD.ondragover = function(){this.className=&quot;drag_over&quot; };    //动态加事件, 改变样式类
-    oTD.ondragleave = function(){this.className=&quot;drag_leave&quot; };
-    oTD.onmousedown = function(){ clearTRstyle(&quot;result&quot;); this.parentNode.style.background = &apos;#0099cc&apos;;};    
-    //this.style.background=&quot;#0099cc url(../images/arroww.gif) 4px 9px no-repeat&quot;;
-    oTD.innerHTML = &quot;&amp;nbsp;&amp;nbsp;&quot;;    
-    oTD = oTR.insertCell(1);
-    oTD.innerHTML = &quot;&lt;input class=\&quot;input\&quot; type=\&quot;checkbox\&quot; name=\&quot;del\&quot; value=\&quot;&quot;+id+&quot;\&quot;&gt;&lt;input type=\&quot;hidden\&quot; name=\&quot;mr_id\&quot; value=\&quot;&quot;+id+&quot;\&quot;&gt;&lt;input class=\&quot;input\&quot; type=\&quot;hidden\&quot; id=\&quot;mr_changed\&quot; name=\&quot;mr_changed\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(2);
-    oTD.innerHTML = &quot;&lt;input class=\&quot;input\&quot; type=\&quot;text\&quot; name=\&quot;mr_orderNo\&quot; readonly size=\&quot;3\&quot; value=\&quot;\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(3);
-    oTD.innerHTML = &quot;&lt;b&gt;&lt;font face=&apos;微软雅黑&apos;&gt;&lt;font color=&apos;blue&apos;&gt;&quot;+productNo;+&quot;&lt;/font&gt;&lt;/font&gt;&lt;/b&gt; &quot;
-    oTD = oTR.insertCell(4);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_cnumber\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+cnumber+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(5);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_grossWeight\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+grossWeight+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(6);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_netWeight\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+netWeight+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(7);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_sizeLength\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+sizeLength+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(8);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_sizeWidth\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+sizeWidth+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(9);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_sizeHeight\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+sizeHeight+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(10);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_exPrice\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+exPrice+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(11);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_tax\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+tax+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-
-    dragtableinit();    //拖动表格行
-    sortnoTR();            //排序号
-
-}    
-</code></pre><p>##2.2修改新增的字段</p>
+        <h1 id="1-让微软汗颜的图形报表"><a href="#1-让微软汗颜的图形报表" class="headerlink" title="1.让微软汗颜的图形报表"></a>1.让微软汗颜的图形报表</h1><p>思路：</p>
 <ol>
-<li>页面上使用同名框，reqest.getParameterValues()，形成一个Sring数组</li>
-<li>Struts2框架封装为可以根据它的类型数组，改造ModelDriver<br>字符类型，将多个值拼接成一个字符串，之间用逗号+空格隔开<br>整形、浮点型、日期等，只保留第一个</li>
-<li>Springmvc框架封装为数组，在方法调用参数上声明<br>字符类型，将多个值拼接成一个字符串，之间用逗号隔开<br>整形、浮点型、日期等，只保留第一个</li>
+<li>组织数据源</li>
+<li>拼接字符串，拼接为amchart官网Demo的html格式<h2 id="1-1饼形图："><a href="#1-1饼形图：" class="headerlink" title="1.1饼形图："></a>1.1饼形图：</h2><img src="/images/91.png" alt="Alt text"></li>
 </ol>
+<h2 id="1-2柱状图"><a href="#1-2柱状图" class="headerlink" title="1.2柱状图"></a>1.2柱状图</h2><p><img src="/images/92.png" alt="Alt text"></p>
+<h2 id="1-3折线图"><a href="#1-3折线图" class="headerlink" title="1.3折线图"></a>1.3折线图</h2><p><img src="/images/93.png" alt="Alt text"></p>
+<h1 id="2-异构数据库-让程序支持主流数据库切换"><a href="#2-异构数据库-让程序支持主流数据库切换" class="headerlink" title="2.异构数据库,让程序支持主流数据库切换"></a>2.异构数据库,让程序支持主流数据库切换</h1><p><img src="/images/94.png" alt="Alt text"></p>
+<p>程序开发时有要求：</p>
+<ol>
+<li>不能使用存储过程，不能使用规则rule，不能使用触发器；</li>
+<li>可以少量使用view。基于程序方便维护，程序通用性强，减少对数据库的依赖，增强程序代码的处理。也就是现今大多数软件公司都减少dba的角色，增强java代码来处理。<br>特例：但在大型项目中，分页采用存储过程。</li>
+</ol>
+<ol>
+<li><p>在企业的实际开发中，由于这种底层封装效率太低，要做大量数据操作时或者大量连接查询统计时，spring jdbctemplate 直接访问数据。sqlDao封装spring jdbctemplate。</p>
+</li>
+<li><p>sqlDao返回list集合实际是一个一唯字符串数组</p>
+<h1 id="3-分表技术"><a href="#3-分表技术" class="headerlink" title="3.分表技术"></a>3.分表技术</h1></li>
+</ol>
+<p>当业务数据量非常巨大时，常用的优化方式。一张表的数据量过大，这样在日常的操作时速度非常缓慢。怎么提高它的响应的速度，实际中就是将一些不常在使用的数据移动到另一张表中，而这另一张表叫历史表。历史表和原来的表结构一致。这样当前表由于只使用当前的部分数据，所以性能提高。因为实际业务中很少再去查询历史表，即使查询历史表由于使用的人也少，所以它的性能还能适应。</p>
+<p>表结构一样，新创建表结果跟它一样</p>
 
       
     </div>
@@ -415,8 +416,8 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/27/jk6/" rel="next" title="基于SSM的商贸平台项目（第六天）">
-                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第六天）
+              <a href="/2017/06/15/win10/" rel="next" title="在HDD+SSD的zotac 1060，装win10于SSD">
+                <i class="fa fa-chevron-left"></i> 在HDD+SSD的zotac 1060，装win10于SSD
               </a>
             
           </div>
@@ -424,10 +425,6 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/07/jk8/" rel="prev" title="基于SSM的商贸平台项目（第八天）">
-                基于SSM的商贸平台项目（第八天） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +564,7 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-新的设计方式：打断设计"><span class="nav-number">1.</span> <span class="nav-text">1.新的设计方式：打断设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-在jsp页面动态增加表格"><span class="nav-number">2.</span> <span class="nav-text">2.在jsp页面动态增加表格</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-让微软汗颜的图形报表"><span class="nav-number">1.</span> <span class="nav-text">1.让微软汗颜的图形报表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1饼形图："><span class="nav-number">1.1.</span> <span class="nav-text">1.1饼形图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2柱状图"><span class="nav-number">1.2.</span> <span class="nav-text">1.2柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3折线图"><span class="nav-number">1.3.</span> <span class="nav-text">1.3折线图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-异构数据库-让程序支持主流数据库切换"><span class="nav-number">2.</span> <span class="nav-text">2.异构数据库,让程序支持主流数据库切换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-分表技术"><span class="nav-number">3.</span> <span class="nav-text">3.分表技术</span></a></li></ol></div>
             
 
           </div>
