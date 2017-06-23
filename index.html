@@ -250,6 +250,201 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/linux1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/21/linux1/" itemprop="url">
+                  linux基础操作1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-21T09:26:46+08:00">
+                2017-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-文件系统的管理"><a href="#1-文件系统的管理" class="headerlink" title="1.文件系统的管理"></a>1.文件系统的管理</h1><p>tips:输入命令的时候要常用tab键来补全</p>
+<p>ls   查看目录信息  （ ls /  ）<br>    ls -l 等价于  ll<br>pwd      查看当前所处的路径   </p>
+<p>cd     切换目录 (cd /) ,如果不带参数则切换到用户主目录 ~</p>
+<p>mkdir   创建文件夹</p>
+<p>mkdir -p a/b/c  如果要创建的文件夹的父目录不存在，则自动创建</p>
+<p>rmdir   删除空文件夹  (只能删除空文件夹)</p>
+<p>rm -r  /a/b  (删除非空文件夹)</p>
+<p>创建文件</p>
+<p>touch a.avi 创建一个空文件</p>
+<p>vi blabla.txt 用文本编辑器编辑一个文件并且保存</p>
+<p>echo “angelababy,zhen de hen xihuan ni” &gt; qingshu.txt  把左边的输出放到右边的文件里去 </p>
+<p>删除文件</p>
+<p>rm filename  (rm -r  删除文件夹     rm -rf 强制删除文件或文件夹)</p>
+<p>移动文件  修改文件名</p>
+<p>mv a/wenjian1.txt b/file1.txt   (移动文件的同时还修改了文件名)</p>
+<p>拷贝文件</p>
+<p>cp srcFile destFile</p>
+<p>查看文本文件内容</p>
+<p>cat wodeqingshu.txt</p>
+<p>more wodeqingshu.txt 可以分页看</p>
+<p>less wodeqingshu.txt 不仅可以分页，还可以方便地搜索，回翻等操作</p>
+<p>tail -10 wodeqingshu.txt   查看文件的尾部的10行</p>
+<p>程序打出的日志在生产实践中具有非凡的debug的意义</p>
+<p>tail -f user.log   实时刷新显示文件的尾部</p>
+<p>head -20 wodeqingshu.txt 查看文件的头部20行</p>
+<h1 id="2-权限管理"><a href="#2-权限管理" class="headerlink" title="2.权限管理"></a>2.权限管理</h1><p>linux系统中对文件权限的描述机制：</p>
+<p>d  r  w  x   r  w  x   r  -  x</p>
+<p>   所有者      所属组    其他人</p>
+<p>可以表示为二进制：  111 111 101</p>
+<p>也可以表示为十进制： 7     7   5</p>
+<p>修改权限<br>chmod  u+rwx file   为file添加或取消所属用户的权限</p>
+<p>(u代表所属用户  o代表其他用户  g代表所属组的成员用户)</p>
+<p>chmod 567 file 用数字也可以表示权限  </p>
+<p>修改文件的所有者owner（只能由root权限才能操作）</p>
+<p>chown hadoop:hadoop  file 将file的所有者改成hadoop用户，所属组改成hadoop组</p>
+<p>上级目录的权限对本级文件或者文件夹的操作有约束</p>
+<h1 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3.用户管理"></a>3.用户管理</h1><p>添加用户</p>
+<p>useradd  itcast0830</p>
+<p>必须设置密码才能正常登陆    passwd itcast0830</p>
+<p>删除用户</p>
+<p>userdel yun12</p>
+<p>userdel -r itcast —–删除用户的同时删除用户的主目录</p>
+<p>修改用户属性</p>
+<p>usermod -l b a 将a的登陆名改为b</p>
+<p>usermod -g hadoop itcast0830 将itcast0830的组改为hadoop组</p>
+<p>usermod -G hadoop,root itcast0830 给itcast0830添加两个组hadoop,root</p>
+<p>usermod -d /home/itcast itcast0830 将itcast0830的主目录改成/home/itcast</p>
+<p>（要事先创建itcast目录，并且拷入环境变量文件）</p>
+<p>—-<em>**</em>—-修改用户的密码</p>
+<p>passwd itcast0830</p>
+<p>添加用户组<br>groupadd beauties</p>
+<p>删除用户组<br>groupdel beauties</p>
+<p>修改用户组属性<br>groupmod </p>
+<p>查看当前登陆的身份<br>whoami<br>查看当前用属的组<br>groups</p>
+<h1 id="4-常见系统管理-凡是涉及到修改，就一定要用root权限"><a href="#4-常见系统管理-凡是涉及到修改，就一定要用root权限" class="headerlink" title="4.常见系统管理(凡是涉及到修改，就一定要用root权限)"></a>4.常见系统管理(凡是涉及到修改，就一定要用root权限)</h1><hr>
+<p>轻易不要使用su去切换到root的身份</p>
+<p>普通用户使用sudo来执行root权限的命令</p>
+<p>如，将hadoop用户添加到sudoers文件中去</p>
+<p>root    ALL=(ALL)       ALL</p>
+<p>hadoop  ALL=(ALL)       ALL</p>
+<p>磁盘空间信息查看</p>
+<p>df -h  查看磁盘空间状态信息</p>
+<p>du -sh * 查看当前目录下所有子目录和文件的汇总大小    </p>
+<p>进程信息查看 </p>
+<p>free  查看内存使用状况</p>
+<p>top   查看实时刷新的系统进程信息</p>
+<p>ps -ef  查看系统中当前瞬间的进程信息快照</p>
+<p>ps -ef | grep myshell.sh  搜索myshell进程的信息</p>
+<p>kill -9 pid  杀掉进程  （-9 表示强制杀死）</p>
+<h1 id="5-文件归档压缩-1：打包–归档；-2：压缩"><a href="#5-文件归档压缩-1：打包–归档；-2：压缩" class="headerlink" title="5.文件归档压缩(1：打包–归档； 2：压缩)"></a>5.文件归档压缩(1：打包–归档； 2：压缩)</h1><ol>
+<li>归档<br>tar -cvf testdir.tar testdir/</li>
+<li>压缩<br>gzip testdir.tar  </li>
+</ol>
+<p>gzip  file</p>
+<p>bzip  file </p>
+<p>tar -czvf  testdir.tar.gz testdir/</p>
+<p>tar -xzvf testdir.tar.gz  解压到当前目录下</p>
+<p>tar -zxvf testdir.tar.gz -C Downloads/   解压到指定的Downloads目录下</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/jk10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2361,160 +2556,6 @@ from
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/jk2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FangChao.Qu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiangImg.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FangChao.Qu Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/19/jk2/" itemprop="url">
-                  基于SSM的商贸平台项目（第二天）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T09:26:46+08:00">
-                2017-05-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-开发规范"><a href="#1-开发规范" class="headerlink" title="1.开发规范"></a>1.开发规范</h1><h2 id="1-1数据库设计的规范"><a href="#1-1数据库设计的规范" class="headerlink" title="1.1数据库设计的规范"></a>1.1数据库设计的规范</h2><ol>
-<li>数据库设计的规范</li>
-<li>数据库表和字段都大写</li>
-<li>表都要加业务后缀，例如_C客户表 _B基础表 _P权限表</li>
-<li>必须有主键，主键是表名去掉业务后缀，加_ID，大多表的主键使用UUID</li>
-<li>字段多个单词时，全大写，用下划线隔开</li>
-<li>类型INT/LONG/DOUBLE/TIMESTAMP/CHAR/VARCHAR2 尽量化在这几个类型中，这样数据库设计相当简单</li>
-<li>排序号定死名称ORDER_NO</li>
-<li>权限两个字段CREATE_BY创建人，CREATE_DEPT创建部门</li>
-<li>记录创建时间CREATE_TIME<h2 id="1-2代码的开发规范"><a href="#1-2代码的开发规范" class="headerlink" title="1.2代码的开发规范"></a>1.2代码的开发规范</h2></li>
-<li>将静态资源之间放在webapps下；将动态资源需要验证权限放在WEB-INF/pages（安全）</li>
-<li>类文件放在src/main/java下；资源文件src/main/resources；web文件放在src/main/webapp下</li>
-<li>cn.itcast.jk.domain    存放所有实体文件PO</li>
-<li>cn.itcast.jk.dao 存放所有dao的接口和实现类，业务接口必须继承BaseDao接口，业务的实现类必须继承BaseDaoImpl实现类。</li>
-<li>cn.itcast.jk.dao 存放所有的service接口和实现类，无需继承。</li>
-<li>cn.itcast.jk.controller 存放所有springmvc 的controller，它不必须继承BaseController；它创建两层目录结构，一层是大模块名称，第二层是小模块名称，业务内容都放在下面。</li>
-<li>jsp，它放在WEB-INF/pages目录下，也创建两级目录，第一层就是大模块名称，第二层是小模块名称。</li>
-<li>webapp/components它第三方组件的目录，例如jQuery</li>
-<li>webapp/js/common.js 它是整个项目公用的js</li>
-<li>webapp/mak/xlsprint excel报表的模板文件</li>
-</ol>
-<h2 id="1-3数据库设计"><a href="#1-3数据库设计" class="headerlink" title="1.3数据库设计"></a>1.3数据库设计</h2><h3 id="数据库设计基础原则：三范式"><a href="#数据库设计基础原则：三范式" class="headerlink" title="数据库设计基础原则：三范式"></a>数据库设计基础原则：三范式</h3><ol>
-<li>表必须有主键</li>
-<li>字段内容不能是其他的字段加工而成</li>
-<li>行数据不能相同</li>
-</ol>
-<h3 id="现今业界主流数据库设计原则：反三范式"><a href="#现今业界主流数据库设计原则：反三范式" class="headerlink" title="现今业界主流数据库设计原则：反三范式"></a>现今业界主流数据库设计原则：反三范式</h3><ol>
-<li>表不是必须有主键</li>
-<li>字段存一些加工后的中间的结果，冗余设计</li>
-<li>记录冗余</li>
-</ol>
-<p>三范式追求的目标存储空间尽量小；反三范式追求的目标是查询速度。<br>创建数据库设计时首先按三范式设计，然后局部优化。</p>
-<p>画图的目的：为了开发人员了解整个系统的概貌，当画很多细节时，就会干扰我们对图的了解。</p>
-<h1 id="2-Oracle数据库备份和恢复"><a href="#2-Oracle数据库备份和恢复" class="headerlink" title="2.Oracle数据库备份和恢复"></a>2.Oracle数据库备份和恢复</h1><h3 id="1-备份"><a href="#1-备份" class="headerlink" title="1.备份"></a>1.备份</h3><p><img src="/images/bf.png" alt="Alt text"></p>
-<h3 id="2-恢复"><a href="#2-恢复" class="headerlink" title="2.恢复"></a>2.恢复</h3><p><img src="/images/hf.png" alt="Alt text"></p>
-<p>3.SQL形式备份，备份不能含有大字段，在导入时，不直接用工具，直接拷贝sql语句，进行执行</p>
-<p><img src="/images/bfsql.png" alt="Alt text"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2564,7 +2605,7 @@ from
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2577,7 +2618,7 @@ from
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
