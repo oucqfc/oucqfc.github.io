@@ -103,7 +103,7 @@ cd     切换目录 (cd /) ,如果不带参数则切换到用户主目录 ~
 mkdir   创建文件夹
 mkdir -p a/b/c  如果要创建的文件夹的父目录不存在，则自动创建
 rmdir   删除空文件夹">
-<meta property="og:updated_time" content="2017-06-23T08:51:04.280Z">
+<meta property="og:updated_time" content="2017-06-28T02:31:40.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux基础操作1">
 <meta name="twitter:description" content="1.文件系统的管理tips:输入命令的时候要常用tab键来补全
@@ -338,82 +338,113 @@ rmdir   删除空文件夹">
       
         <h1 id="1-文件系统的管理"><a href="#1-文件系统的管理" class="headerlink" title="1.文件系统的管理"></a>1.文件系统的管理</h1><p>tips:输入命令的时候要常用tab键来补全</p>
 <p>ls   查看目录信息  （ ls /  ）<br>    ls -l 等价于  ll<br>pwd      查看当前所处的路径   </p>
-<p>cd     切换目录 (cd /) ,如果不带参数则切换到用户主目录 ~</p>
-<p>mkdir   创建文件夹</p>
-<p>mkdir -p a/b/c  如果要创建的文件夹的父目录不存在，则自动创建</p>
-<p>rmdir   删除空文件夹  (只能删除空文件夹)</p>
-<p>rm -r  /a/b  (删除非空文件夹)</p>
-<p>创建文件</p>
-<p>touch a.avi 创建一个空文件</p>
-<p>vi blabla.txt 用文本编辑器编辑一个文件并且保存</p>
-<p>echo “angelababy,zhen de hen xihuan ni” &gt; qingshu.txt  把左边的输出放到右边的文件里去 </p>
-<p>删除文件</p>
-<p>rm filename  (rm -r  删除文件夹     rm -rf 强制删除文件或文件夹)</p>
-<p>移动文件  修改文件名</p>
-<p>mv a/wenjian1.txt b/file1.txt   (移动文件的同时还修改了文件名)</p>
-<p>拷贝文件</p>
-<p>cp srcFile destFile</p>
-<p>查看文本文件内容</p>
-<p>cat wodeqingshu.txt</p>
-<p>more wodeqingshu.txt 可以分页看</p>
-<p>less wodeqingshu.txt 不仅可以分页，还可以方便地搜索，回翻等操作</p>
-<p>tail -10 wodeqingshu.txt   查看文件的尾部的10行</p>
-<p>程序打出的日志在生产实践中具有非凡的debug的意义</p>
-<p>tail -f user.log   实时刷新显示文件的尾部</p>
-<p>head -20 wodeqingshu.txt 查看文件的头部20行</p>
-<h1 id="2-权限管理"><a href="#2-权限管理" class="headerlink" title="2.权限管理"></a>2.权限管理</h1><p>linux系统中对文件权限的描述机制：</p>
-<p>d  r  w  x   r  w  x   r  -  x</p>
-<p>   所有者      所属组    其他人</p>
-<p>可以表示为二进制：  111 111 101</p>
-<p>也可以表示为十进制： 7     7   5</p>
-<p>修改权限<br>chmod  u+rwx file   为file添加或取消所属用户的权限</p>
-<p>(u代表所属用户  o代表其他用户  g代表所属组的成员用户)</p>
-<p>chmod 567 file 用数字也可以表示权限  </p>
-<p>修改文件的所有者owner（只能由root权限才能操作）</p>
-<p>chown hadoop:hadoop  file 将file的所有者改成hadoop用户，所属组改成hadoop组</p>
-<p>上级目录的权限对本级文件或者文件夹的操作有约束</p>
-<h1 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3.用户管理"></a>3.用户管理</h1><p>添加用户</p>
-<p>useradd  itcast0830</p>
-<p>必须设置密码才能正常登陆    passwd itcast0830</p>
-<p>删除用户</p>
-<p>userdel yun12</p>
-<p>userdel -r itcast —–删除用户的同时删除用户的主目录</p>
-<p>修改用户属性</p>
-<p>usermod -l b a 将a的登陆名改为b</p>
-<p>usermod -g hadoop itcast0830 将itcast0830的组改为hadoop组</p>
-<p>usermod -G hadoop,root itcast0830 给itcast0830添加两个组hadoop,root</p>
-<p>usermod -d /home/itcast itcast0830 将itcast0830的主目录改成/home/itcast</p>
-<p>（要事先创建itcast目录，并且拷入环境变量文件）</p>
-<p>—-<em>**</em>—-修改用户的密码</p>
-<p>passwd itcast0830</p>
-<p>添加用户组<br>groupadd beauties</p>
-<p>删除用户组<br>groupdel beauties</p>
-<p>修改用户组属性<br>groupmod </p>
-<p>查看当前登陆的身份<br>whoami<br>查看当前用属的组<br>groups</p>
+<pre><code>cd     切换目录 (cd /) ,如果不带参数则切换到用户主目录 ~
+</code></pre><p>mkdir   创建文件夹</p>
+<pre><code>mkdir -p a/b/c  如果要创建的文件夹的父目录不存在，则自动创建
+</code></pre><p>rmdir   删除空文件夹  (只能删除空文件夹)</p>
+<pre><code>rm -r  /a/b  (删除非空文件夹)
+</code></pre><p>创建文件</p>
+<pre><code>touch a.avi 创建一个空文件
+
+vi blabla.txt 用文本编辑器编辑一个文件并且保存
+
+echo &quot;angelababy,zhen de hen xihuan ni&quot; &gt; qingshu.txt  把左边的输出放到右边的文件里去 
+</code></pre><p>删除文件</p>
+<pre><code>rm filename  (rm -r  删除文件夹     rm -rf 强制删除文件或文件夹)
+</code></pre><p>移动文件  修改文件名</p>
+<pre><code>mv a/wenjian1.txt b/file1.txt   (移动文件的同时还修改了文件名)
+</code></pre><p>拷贝文件</p>
+<pre><code>cp srcFile destFile
+</code></pre><p>查看文本文件内容</p>
+<pre><code>cat wodeqingshu.txt
+
+more wodeqingshu.txt 可以分页看
+
+less wodeqingshu.txt 不仅可以分页，还可以方便地搜索，回翻等操作
+
+tail -10 wodeqingshu.txt   查看文件的尾部的10行
+</code></pre><p>程序打出的日志在生产实践中具有非凡的debug的意义</p>
+<pre><code>tail -f user.log   实时刷新显示文件的尾部
+
+head -20 wodeqingshu.txt 查看文件的头部20行
+</code></pre><h1 id="2-权限管理"><a href="#2-权限管理" class="headerlink" title="2.权限管理"></a>2.权限管理</h1><p>linux系统中对文件权限的描述机制：</p>
+<pre><code>d  r  w  x   r  w  x   r  -  x
+
+   所有者      所属组    其他人
+
+可以表示为二进制：  111 111 101
+
+也可以表示为十进制： 7     7   5
+</code></pre><p>修改权限<br>    chmod  u+rwx file   为file添加或取消所属用户的权限</p>
+<pre><code>(u代表所属用户  o代表其他用户  g代表所属组的成员用户)
+
+chmod 567 file 用数字也可以表示权限  
+</code></pre><p>修改文件的所有者owner（只能由root权限才能操作）</p>
+<pre><code>chown hadoop:hadoop  file 将file的所有者改成hadoop用户，所属组改成hadoop组
+
+上级目录的权限对本级文件或者文件夹的操作有约束
+</code></pre><h1 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3.用户管理"></a>3.用户管理</h1><p>添加用户</p>
+<pre><code>useradd  qfc
+
+必须设置密码才能正常登陆    passwd qfc
+
+在/home/下：mkdir qfc
+
+chown qfc:qfc qfc
+
+cp .bash_history .bashrc qfc
+</code></pre><p>删除用户</p>
+<pre><code>userdel yun12
+
+userdel -r itcast -----删除用户的同时删除用户的主目录
+</code></pre><p>修改用户属性</p>
+<pre><code>usermod -l b a 将a的登陆名改为b
+
+usermod -g hadoop itcast0830 将itcast0830的组改为hadoop组
+
+usermod -G hadoop,root itcast0830 给itcast0830添加两个组hadoop,root
+
+usermod -d /home/itcast itcast0830 将itcast0830的主目录改成/home/itcast
+
+（要事先创建itcast目录，并且拷入环境变量文件）
+</code></pre><p>—-<em>**</em>—-修改用户的密码</p>
+<pre><code>passwd itcast0830
+</code></pre><p>添加用户组<br>    groupadd beauties</p>
+<p>删除用户组<br>    groupdel beauties</p>
+<p>修改用户组属性<br>    groupmod </p>
+<p>查看当前登陆的身份<br>    whoami<br>查看当前用属的组<br>    groups</p>
 <h1 id="4-常见系统管理-凡是涉及到修改，就一定要用root权限"><a href="#4-常见系统管理-凡是涉及到修改，就一定要用root权限" class="headerlink" title="4.常见系统管理(凡是涉及到修改，就一定要用root权限)"></a>4.常见系统管理(凡是涉及到修改，就一定要用root权限)</h1><hr>
 <p>轻易不要使用su去切换到root的身份</p>
 <p>普通用户使用sudo来执行root权限的命令</p>
 <p>如，将hadoop用户添加到sudoers文件中去</p>
-<p>root    ALL=(ALL)       ALL</p>
-<p>hadoop  ALL=(ALL)       ALL</p>
-<p>磁盘空间信息查看</p>
-<p>df -h  查看磁盘空间状态信息</p>
-<p>du -sh * 查看当前目录下所有子目录和文件的汇总大小    </p>
-<p>进程信息查看 </p>
-<p>free  查看内存使用状况</p>
-<p>top   查看实时刷新的系统进程信息</p>
-<p>ps -ef  查看系统中当前瞬间的进程信息快照</p>
-<p>ps -ef | grep myshell.sh  搜索myshell进程的信息</p>
-<p>kill -9 pid  杀掉进程  （-9 表示强制杀死）</p>
-<h1 id="5-文件归档压缩-1：打包–归档；-2：压缩"><a href="#5-文件归档压缩-1：打包–归档；-2：压缩" class="headerlink" title="5.文件归档压缩(1：打包–归档； 2：压缩)"></a>5.文件归档压缩(1：打包–归档； 2：压缩)</h1><ol>
-<li>归档<br>tar -cvf testdir.tar testdir/</li>
-<li>压缩<br>gzip testdir.tar  </li>
+<pre><code>root    ALL=(ALL)       ALL
+
+hadoop  ALL=(ALL)       ALL
+</code></pre><p>磁盘空间信息查看</p>
+<pre><code>df -h  查看磁盘空间状态信息
+
+du -sh * 查看当前目录下所有子目录和文件的汇总大小    
+</code></pre><p>进程信息查看 </p>
+<pre><code>free  查看内存使用状况
+
+top   查看实时刷新的系统进程信息
+
+ps -ef  查看系统中当前瞬间的进程信息快照
+
+
+ps -ef | grep myshell.sh  搜索myshell进程的信息
+
+kill -9 pid  杀掉进程  （-9 表示强制杀死）
+</code></pre><h1 id="5-文件归档压缩-1：打包–归档；-2：压缩"><a href="#5-文件归档压缩-1：打包–归档；-2：压缩" class="headerlink" title="5.文件归档压缩(1：打包–归档； 2：压缩)"></a>5.文件归档压缩(1：打包–归档； 2：压缩)</h1><ol>
+<li>归档与解档<br> tar -cvf testdir.tar testdir/<br> tar -xvf testdir.tar </li>
+<li><p>压缩<br> gzip testdir.tar  </p>
+<p> gzip  file</p>
+<p> bzip  file </p>
+<p> tar -czvf  testdir.tar.gz testdir/</p>
+<p> tar -xzvf testdir.tar.gz  解压到当前目录下</p>
+<p> tar -zxvf testdir.tar.gz -C Downloads/   解压到指定的Downloads目录下</p>
+</li>
 </ol>
-<p>gzip  file</p>
-<p>bzip  file </p>
-<p>tar -czvf  testdir.tar.gz testdir/</p>
-<p>tar -xzvf testdir.tar.gz  解压到当前目录下</p>
-<p>tar -zxvf testdir.tar.gz -C Downloads/   解压到指定的Downloads目录下</p>
 
       
     </div>
@@ -450,8 +481,8 @@ rmdir   删除空文件夹">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/21/jk10/" rel="next" title="基于SSM的商贸平台项目（第十天）">
-                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第十天）
+              <a href="/2017/06/16/jk9/" rel="next" title="基于SSM的商贸平台项目（第九天）">
+                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第九天）
               </a>
             
           </div>
@@ -460,8 +491,8 @@ rmdir   删除空文件夹">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/26/linux2/" rel="prev" title="linux基础操作2">
-                linux基础操作2 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/21/jk10/" rel="prev" title="基于SSM的商贸平台项目（第十天）">
+                基于SSM的商贸平台项目（第十天） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

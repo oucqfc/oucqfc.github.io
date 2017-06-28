@@ -107,7 +107,7 @@ sudo vi /etc/sysconfig/network-scripts/ifcfg-eth0 修改该配置文件即可改
 sudo vi  /etc/sysconfig/network  
 修改其中的hostname配置项
 要想立即生效  可以执行">
-<meta property="og:updated_time" content="2017-06-26T08:51:12.597Z">
+<meta property="og:updated_time" content="2017-06-28T02:26:00.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux基础操作2">
 <meta name="twitter:description" content="1.网络管理修改ip地址的配置
@@ -360,7 +360,14 @@ sudo vi  /etc/sysconfig/network
 <p>关闭防火墙自动启动   chkconfig iptables off</p>
 <p>修改系统的默认启动级别</p>
 <p>vi /etc/inittab</p>
-<h4 id="0-halt-Do-NOT-set-initdefault-to-this"><a href="#0-halt-Do-NOT-set-initdefault-to-this" class="headerlink" title="0 - halt (Do NOT set initdefault to this)"></a>0 - halt (Do NOT set initdefault to this)</h4><h4 id="1-Single-user-mode"><a href="#1-Single-user-mode" class="headerlink" title="1 - Single user mode"></a>1 - Single user mode</h4><h4 id="2-Multiuser-without-NFS-The-same-as-3-if-you-do-not-have-networking"><a href="#2-Multiuser-without-NFS-The-same-as-3-if-you-do-not-have-networking" class="headerlink" title="2 - Multiuser, without NFS (The same as 3, if you do not have networking)"></a>2 - Multiuser, without NFS (The same as 3, if you do not have networking)</h4><h4 id="3-Full-multiuser-mode"><a href="#3-Full-multiuser-mode" class="headerlink" title="3 - Full multiuser mode"></a>3 - Full multiuser mode</h4><h4 id="4-unused"><a href="#4-unused" class="headerlink" title="4 - unused"></a>4 - unused</h4><h4 id="5-X11"><a href="#5-X11" class="headerlink" title="5 - X11"></a>5 - X11</h4><h4 id="6-reboot-Do-NOT-set-initdefault-to-this"><a href="#6-reboot-Do-NOT-set-initdefault-to-this" class="headerlink" title="6 - reboot (Do NOT set initdefault to this)"></a>6 - reboot (Do NOT set initdefault to this)</h4><p>id:3:initdefault:<br>~<br>用level 3 就启动全功能状态的字符界面 </p>
+<pre><code>  0 - halt (Do NOT set initdefault to this)
+ 1 - Single user mode
+2 - Multiuser, without NFS (The same as 3, if you do not have networking)
+3 - Full multiuser mode
+4 - unused
+ 5 - X11
+ 6 - reboot (Do NOT set initdefault to this)
+</code></pre><p>id:3:initdefault:<br>~<br>用level 3 就启动全功能状态的字符界面 </p>
 <p>查看当前的进程连接网络的信息</p>
 <p>netstat -nltp   </p>
 <h1 id="2-常用工具指令"><a href="#2-常用工具指令" class="headerlink" title="2.常用工具指令"></a>2.常用工具指令</h1><p>wc   统计文本信息（行数，词数，字符数）</p>
@@ -377,7 +384,7 @@ sudo vi  /etc/sysconfig/network
   export JAVA_HOME=&quot;/java/jdk1.6.0_39&quot;
   export PATH=$PATH:$JAVA_HOME/bin
 刷新配置 ，让配置生效
- source /etc/profile
+ source /etc/profile  （java -version失效，可重复此操作）
 编写Demo.java,测试 
  -javac Demo.java
      - java Demo
@@ -427,8 +434,8 @@ tar -xzvf  apache-tomcat.tar.gz
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/21/linux1/" rel="next" title="linux基础操作1">
-                <i class="fa fa-chevron-left"></i> linux基础操作1
+              <a href="/2017/06/21/jk10/" rel="next" title="基于SSM的商贸平台项目（第十天）">
+                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第十天）
               </a>
             
           </div>
@@ -575,7 +582,7 @@ tar -xzvf  apache-tomcat.tar.gz
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-网络管理"><span class="nav-number">1.</span> <span class="nav-text">1.网络管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-halt-Do-NOT-set-initdefault-to-this"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">0 - halt (Do NOT set initdefault to this)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Single-user-mode"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1 - Single user mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Multiuser-without-NFS-The-same-as-3-if-you-do-not-have-networking"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">2 - Multiuser, without NFS (The same as 3, if you do not have networking)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Full-multiuser-mode"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">3 - Full multiuser mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-unused"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">4 - unused</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-X11"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">5 - X11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-reboot-Do-NOT-set-initdefault-to-this"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">6 - reboot (Do NOT set initdefault to this)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-常用工具指令"><span class="nav-number">2.</span> <span class="nav-text">2.常用工具指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-linux中的软件安装"><span class="nav-number">3.</span> <span class="nav-text">3.linux中的软件安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-网络管理"><span class="nav-number">1.</span> <span class="nav-text">1.网络管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-常用工具指令"><span class="nav-number">2.</span> <span class="nav-text">2.常用工具指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-linux中的软件安装"><span class="nav-number">3.</span> <span class="nav-text">3.linux中的软件安装</span></a></li></ol></div>
             
 
           </div>
