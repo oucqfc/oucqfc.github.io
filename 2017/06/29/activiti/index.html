@@ -87,21 +87,28 @@
 
 
 
-<meta name="description" content="1.新的设计方式：打断设计在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。
-2.在jsp页面动态增加表格##2.1动态表格：innerHTML 实现往一个区域di">
+<meta name="description" content="1.安装流程设计器
+将activiti-designer.zip解压到myeclipse安装目录下的dropins下的activiti-designer文件夹
+创建activiti.link文件，内容如下
+注意：打开菜单Windows-&amp;gt;Preferences-&amp;gt;Activiti-&amp;gt;Save actions， 把bpmn 和.png同步保存
+ path=C:\Users\qfc\">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于SSM的商贸平台项目（第七天）">
-<meta property="og:url" content="http://yoursite.com/2017/06/02/jk7/index.html">
+<meta property="og:title" content="Activiti工作流(第一天)">
+<meta property="og:url" content="http://yoursite.com/2017/06/29/activiti/index.html">
 <meta property="og:site_name" content="FangChao.Qu Blog">
-<meta property="og:description" content="1.新的设计方式：打断设计在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。
-2.在jsp页面动态增加表格##2.1动态表格：innerHTML 实现往一个区域di">
-<meta property="og:image" content="http://yoursite.com/images/71.png">
-<meta property="og:updated_time" content="2017-06-02T07:04:23.298Z">
+<meta property="og:description" content="1.安装流程设计器
+将activiti-designer.zip解压到myeclipse安装目录下的dropins下的activiti-designer文件夹
+创建activiti.link文件，内容如下
+注意：打开菜单Windows-&amp;gt;Preferences-&amp;gt;Activiti-&amp;gt;Save actions， 把bpmn 和.png同步保存
+ path=C:\Users\qfc\">
+<meta property="og:updated_time" content="2017-07-03T07:18:25.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于SSM的商贸平台项目（第七天）">
-<meta name="twitter:description" content="1.新的设计方式：打断设计在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。
-2.在jsp页面动态增加表格##2.1动态表格：innerHTML 实现往一个区域di">
-<meta name="twitter:image" content="http://yoursite.com/images/71.png">
+<meta name="twitter:title" content="Activiti工作流(第一天)">
+<meta name="twitter:description" content="1.安装流程设计器
+将activiti-designer.zip解压到myeclipse安装目录下的dropins下的activiti-designer文件夹
+创建activiti.link文件，内容如下
+注意：打开菜单Windows-&amp;gt;Preferences-&amp;gt;Activiti-&amp;gt;Save actions， 把bpmn 和.png同步保存
+ path=C:\Users\qfc\">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/02/jk7/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/29/activiti/"/>
 
 
 
 
 
-  <title> 基于SSM的商贸平台项目（第七天） | FangChao.Qu Blog </title>
+  <title> Activiti工作流(第一天) | FangChao.Qu Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/02/jk7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/29/activiti/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FangChao.Qu">
@@ -275,7 +282,7 @@
             
             
               
-                基于SSM的商贸平台项目（第七天）
+                Activiti工作流(第一天)
               
             
           </h1>
@@ -290,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T09:26:46+08:00">
-                2017-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-29T09:26:46+08:00">
+                2017-06-29
               </time>
             
 
@@ -326,60 +333,133 @@
       
 
       
-        <h1 id="1-新的设计方式：打断设计"><a href="#1-新的设计方式：打断设计" class="headerlink" title="1.新的设计方式：打断设计"></a>1.新的设计方式：打断设计</h1><p>在表中增加一个字段，这个字段用来存储关联表的主键集合；在报运业务中要查询合同下的货物信息。直接通过这个关联字段，利用in子查询直接去查询货物表，这样查询效率提高很多。而且数据量越大，查询效率越高。这种方式，业务关联层级越多，这种设计方式的性能体现越高。而且通过这种方式可以实现跳跃查询。</p>
-<h1 id="2-在jsp页面动态增加表格"><a href="#2-在jsp页面动态增加表格" class="headerlink" title="2.在jsp页面动态增加表格"></a>2.在jsp页面动态增加表格</h1><p>##2.1动态表格：<br>innerHTML 实现往一个区域div增加一段html代码，</p>
-<p>table,tr,td都用利用js动态插入</p>
-<p> <img src="/images/71.png" alt="Alt text"></p>
-<pre><code>/*实现动态增加一行*/
-function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, sizeLength, sizeWidth, sizeHeight, exPrice, tax) {
-
-    var _tmpSelect = &quot;&quot;;
-    var tableObj = document.getElementById(objId);        //得到表格对象
-    var rowLength = tableObj.rows.length;                //获取行的长度
-
-    oTR = tableObj.insertRow();                            //新增一行
-
-    oTD = oTR.insertCell(0);                            //新增单元格，下标从0开始
-    oTD.style.whiteSpace=&quot;nowrap&quot;;
-    oTD.ondragover = function(){this.className=&quot;drag_over&quot; };    //动态加事件, 改变样式类
-    oTD.ondragleave = function(){this.className=&quot;drag_leave&quot; };
-    oTD.onmousedown = function(){ clearTRstyle(&quot;result&quot;); this.parentNode.style.background = &apos;#0099cc&apos;;};    
-    //this.style.background=&quot;#0099cc url(../images/arroww.gif) 4px 9px no-repeat&quot;;
-    oTD.innerHTML = &quot;&amp;nbsp;&amp;nbsp;&quot;;    
-    oTD = oTR.insertCell(1);
-    oTD.innerHTML = &quot;&lt;input class=\&quot;input\&quot; type=\&quot;checkbox\&quot; name=\&quot;del\&quot; value=\&quot;&quot;+id+&quot;\&quot;&gt;&lt;input type=\&quot;hidden\&quot; name=\&quot;mr_id\&quot; value=\&quot;&quot;+id+&quot;\&quot;&gt;&lt;input class=\&quot;input\&quot; type=\&quot;hidden\&quot; id=\&quot;mr_changed\&quot; name=\&quot;mr_changed\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(2);
-    oTD.innerHTML = &quot;&lt;input class=\&quot;input\&quot; type=\&quot;text\&quot; name=\&quot;mr_orderNo\&quot; readonly size=\&quot;3\&quot; value=\&quot;\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(3);
-    oTD.innerHTML = &quot;&lt;b&gt;&lt;font face=&apos;微软雅黑&apos;&gt;&lt;font color=&apos;blue&apos;&gt;&quot;+productNo;+&quot;&lt;/font&gt;&lt;/font&gt;&lt;/b&gt; &quot;
-    oTD = oTR.insertCell(4);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_cnumber\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+cnumber+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(5);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_grossWeight\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+grossWeight+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(6);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_netWeight\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+netWeight+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(7);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_sizeLength\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+sizeLength+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(8);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_sizeWidth\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+sizeWidth+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(9);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_sizeHeight\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+sizeHeight+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(10);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_exPrice\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+exPrice+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-    oTD = oTR.insertCell(11);
-    oTD.innerHTML = &quot;&lt;input type=\&quot;text\&quot; name=\&quot;mr_tax\&quot; maxLength=\&quot;10\&quot; value=\&quot;&quot;+tax+&quot;\&quot; onBlur=\&quot;setTRUpdateFlag(this);\&quot; size=\&quot;15\&quot;&gt;&quot;;
-
-    dragtableinit();    //拖动表格行
-    sortnoTR();            //排序号
-
-}    
-</code></pre><p>##2.2修改新增的字段</p>
-<ol>
-<li>页面上使用同名框，reqest.getParameterValues()，形成一个Sring数组</li>
-<li>Struts2框架封装为可以根据它的类型数组，改造ModelDriver<br>字符类型，将多个值拼接成一个字符串，之间用逗号+空格隔开<br>整形、浮点型、日期等，只保留第一个</li>
-<li>Springmvc框架封装为数组，在方法调用参数上声明<br>字符类型，将多个值拼接成一个字符串，之间用逗号隔开<br>整形、浮点型、日期等，只保留第一个</li>
+        <h1 id="1-安装流程设计器"><a href="#1-安装流程设计器" class="headerlink" title="1.安装流程设计器"></a>1.安装流程设计器</h1><ol>
+<li>将activiti-designer.zip解压到myeclipse安装目录下的dropins下的activiti-designer文件夹</li>
+<li>创建activiti.link文件，内容如下</li>
+<li><p>注意：打开菜单Windows-&gt;Preferences-&gt;Activiti-&gt;Save actions， 把<em>bpmn 和</em>.png同步保存</p>
+<p> path=C:\Users\qfc\AppData\Local\MyEclipse Professional 2014\dropins\activiti-designer\</p>
+<h1 id="2-Activiti介绍"><a href="#2-Activiti介绍" class="headerlink" title="2.Activiti介绍"></a>2.Activiti介绍</h1><ol>
+<li>工作流引擎 ：ProcessEngine ，它是Activiti的核心类，由该类可以获取其他的服务实例<pre><code>（历史服务、仓库服务、任务服务、用户参与者服务）
+</code></pre></li>
+<li>BPMN  ：UML ：用例图、类图、时序图<br> 业务流程建模与标注（Business Process Model and Notation，BPMN) ，<br> 描述流程的基本符号，包括这些图元如何组合成一个业务流程图（Business Process Diagram）</li>
+<li><p>数据库<br> Activiti的后台是有数据库的支持，所有的表都以ACT_开头。<br> 第二部分是表示表的用途的两个字母标识。 用途也和服务的API对应<br> Activiti的工作流数据库有23张表<br>   要保存流程定义 </p>
+<pre><code>- act_ge_*  ：通用表
+</code></pre><ul>
+<li>act<em>hi</em>*  ：历史流程相关表 </li>
+<li>act<em>re</em>*  ：仓库表：保存流程定义</li>
+<li>act<em>ru</em>*  ：保存流程运行相关的表  </li>
+<li>act<em>id</em>*  ：用户参与相关的表  </li>
+</ul>
+</li>
+<li><p>activiti.cfg.xml<br>  Activiti核心配置文件，配置流程引擎创建工具的基本参数和数据库连接参数</p>
+<h1 id="3-HelloActiviti程序（模拟Activiti流程执行）"><a href="#3-HelloActiviti程序（模拟Activiti流程执行）" class="headerlink" title="3.HelloActiviti程序（模拟Activiti流程执行）"></a>3.HelloActiviti程序（模拟Activiti流程执行）</h1></li>
+<li><p>设置流程定义图bpmn<br>assignee :代理人、指定人、处理人</p>
+</li>
+<li><p>创建流程引擎及工作流数据表</p>
+<p>数据库及表可以自动创建，</p>
+<p> 可以在配置数据库连接时，实现自动创建数据库和表</p>
+<p>取得ProcessEngine对象</p>
+<p> 先取得ProcessEngineConfiguration 对象 ，再由该对象来构建ProcessEngine</p>
+</li>
 </ol>
+</li>
+</ol>
+<ol>
+<li><p>部署流程<br> 影响的表：</p>
+<p> act_re_procdef ：流程定义表 ：</p>
+<p> 该表的key属性 是bpmn 的 id决定  </p>
+<p> 该表的name属性  是bpmn 的name 属性决定</p>
+<p> act_re_deployment：部署表 ：id是由act_ge_property的 next_dbid决定</p>
+<p> act_ge_property ：通用属性表</p>
+</li>
+<li><p>启动流程</p>
+</li>
+<li><p>查看我的个人任务</p>
+</li>
+<li>完成我的个人任务</li>
+</ol>
+<h1 id="4-代码"><a href="#4-代码" class="headerlink" title="4.代码"></a>4.代码</h1><pre><code>public class TestActiviti {
+    ProcessEngine engine=ProcessEngines.getDefaultProcessEngine();
 
+    @Test
+    // 取得流程引擎，且自动创建Activiti设计的数据库及表
+    public void createProcessEngine() {
+        /*方法一
+        // 取得ProcessEngineeConfiguration对象
+        ProcessEngineConfiguration engineConfiguration = ProcessEngineConfiguration
+                .createStandaloneProcessEngineConfiguration();
+        // 设置数据库库连接属性
+        engineConfiguration.setJdbcDriver(&quot;com.mysql.jdbc.Driver&quot;);
+        engineConfiguration
+                .setJdbcUrl(&quot;jdbc:mysql://localhost:3306/activitiDB?createDatabaseIfNotExist=true&quot;
+                        + &quot;&amp;useUnicode=true&amp;characterEncoding=utf8&quot;);
+        engineConfiguration.setJdbcUsername(&quot;root&quot;);
+        engineConfiguration.setJdbcPassword(&quot;21160233099&quot;);
+        // 设置创建表的策略（当没有表时，自动创建表）
+        // public static final java.lang.String DB_SCHEMA_UPDATE_FALSE =
+        // &quot;false&quot;;
+        // public static final java.lang.String DB_SCHEMA_UPDATE_CREATE_DROP =
+        // &quot;create-drop&quot;;
+        // public static final java.lang.String DB_SCHEMA_UPDATE_TRUE = &quot;true&quot;;
+        engineConfiguration.setDatabaseSchemaUpdate(&quot;true&quot;);
+        // 通过ProcessEngineConfiguration对象常见ProcessEnginee对象
+        ProcessEngine processEngine = engineConfiguration.buildProcessEngine();
+ */
+        //方法二
+            //ProcessEngineConfiguration engineConfiguration=ProcessEngineConfiguration.createProcessEngineConfigurationFromResource(&quot;activiti.cfg.xml&quot;);
+            //ProcessEngine engine=engineConfiguration.buildProcessEngine();
+        //方法三
+        ProcessEngine processEngine=ProcessEngines.getDefaultProcessEngine();//默认必须是activiti.cfg.xml方法二可以随意改名
+
+    }
+    //部署流程定义
+    @Test
+    public void deploy(){
+        //取得流程引擎
+        //获取仓库服务：管理流程定义
+        RepositoryService repositoryService=engine.getRepositoryService();
+        repositoryService.createDeployment()//创建一个部署的构建器
+        .addClasspathResource(&quot;diagrams/LeaveBill.bpmn&quot;)//从类路径添加资源
+        .addClasspathResource(&quot;diagrams/LeaveBill.png&quot;)
+        .name(&quot;请假单流程&quot;)//设置部署名称
+        .category(&quot;办公类别&quot;)//设置部署的类别
+        .deploy();
+    }
+    //执行流程
+    @Test
+    public void startProcess(){
+        String processKey=&quot;leaveBill&quot;;
+        //取运行时服务
+        RuntimeService runtimeService=engine.getRuntimeService();
+        //取得流程实例
+        ProcessInstance pi=runtimeService.startProcessInstanceByKey(processKey);//通过流程定义的key来执行流程
+        System.out.println(pi.getId()+pi.getProcessDefinitionId());
+    }
+    //查询任务
+    @Test
+    public void queryTask(){
+        String name=&quot;李四&quot;;
+        //取得任务服务
+        TaskService taskService=engine.getTaskService();
+        //创建一个任务查询对象
+        TaskQuery query=taskService.createTaskQuery();
+        //办理人的任务列表
+        List&lt;Task&gt; list=query.taskAssignee(name).list();
+        for(Task task:list){
+            System.out.println(task.getAssignee()+&quot; &quot;+task.getId());
+
+        }
+    }
+    @Test
+    //完成任务
+    public void complete(){
+        String taskID=&quot;204&quot;;
+        engine.getTaskService().complete(taskID);
+
+
+    }
+}
+</code></pre>
       
     </div>
 
@@ -415,8 +495,8 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/27/jk6/" rel="next" title="基于SSM的商贸平台项目（第六天）">
-                <i class="fa fa-chevron-left"></i> 基于SSM的商贸平台项目（第六天）
+              <a href="/2017/06/26/linux2/" rel="next" title="linux基础操作2">
+                <i class="fa fa-chevron-left"></i> linux基础操作2
               </a>
             
           </div>
@@ -424,10 +504,6 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/07/jk8/" rel="prev" title="基于SSM的商贸平台项目（第八天）">
-                基于SSM的商贸平台项目（第八天） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +643,7 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-新的设计方式：打断设计"><span class="nav-number">1.</span> <span class="nav-text">1.新的设计方式：打断设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-在jsp页面动态增加表格"><span class="nav-number">2.</span> <span class="nav-text">2.在jsp页面动态增加表格</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装流程设计器"><span class="nav-number">1.</span> <span class="nav-text">1.安装流程设计器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Activiti介绍"><span class="nav-number">2.</span> <span class="nav-text">2.Activiti介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-HelloActiviti程序（模拟Activiti流程执行）"><span class="nav-number">3.</span> <span class="nav-text">3.HelloActiviti程序（模拟Activiti流程执行）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-代码"><span class="nav-number">4.</span> <span class="nav-text">4.代码</span></a></li></ol></div>
             
 
           </div>
