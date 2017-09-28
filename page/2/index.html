@@ -250,6 +250,191 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/25/jk5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/25/jk5/" itemprop="url">
+                  基于SSM的商贸平台项目（第五天）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T09:26:46+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-POI解决什么问题"><a href="#1-POI解决什么问题" class="headerlink" title="1.POI解决什么问题"></a>1.POI解决什么问题</h1><p>JXL，POI都是操作excel<br>Excel一些企业小的应用都直接用excel来实现，例如：工资报表，人员名单，进销存<br>作为数据的备份和恢复（导入、导出）</p>
+<p>Jxl 它只能操作excel 2003版本，它导入导出数据量小时性能很高<br>POI 它可以操作office系列软件word、excel、ppt、visio(画网络布局、家装)，在早期版本中它在导出海量数据时，容易崩溃。在新版本中它解决了这个海量数据时，进行了优化，解决了这个问题。</p>
+<h1 id="2-POI初体验"><a href="#2-POI初体验" class="headerlink" title="2.POI初体验"></a>2.POI初体验</h1><pre><code>@Test
+public void testHSSF_base() throws IOException{
+    /*
+     * 开发步骤：
+     * 1、创建一个工作簿
+     * 2、创建一个工作表
+     * 3、创建一个行对象
+     * 4、创建一个单元格对象，指定它的列
+     * 5、给单元格设置内容
+     * 6、样式进行修饰（跳过）
+     * 7、保存，写文件
+     * 8、关闭对象
+     */
+
+    Workbook wb = new HSSFWorkbook();
+    Sheet sheet = wb.createSheet();
+    Row nRow = sheet.createRow(7);            //第八行
+    Cell nCell = nRow.createCell(4);        //第五列
+
+    nCell.setCellValue(&quot;传智播客万年长！&quot;);
+
+    OutputStream os = new FileOutputStream(&quot;c:\\testpoi.xls&quot;);    //excel 2003
+    wb.write(os);
+
+    os.flush();
+    os.close();
+}
+</code></pre><h2 id="2-1小结"><a href="#2-1小结" class="headerlink" title="2.1小结"></a>2.1小结</h2><p>Poi本身操作极其简单，只要记住使用的api即可。<br>但是它在处理单元格时<br>1）    不能直接看中间结果，必须运行完才可以看到<br>2）    HSSF构造的对象都在内存中，创建非常多的对象，当对象量越来越多时，容易造成堆溢出。</p>
+<h1 id="3-POI模板开发"><a href="#3-POI模板开发" class="headerlink" title="3.POI模板开发"></a>3.POI模板开发</h1><p><img src="/images/51.png" alt="Alt text"></p>
+<pre><code>InputStream is = new FileInputStream(new File(&quot;c:\\tOUTPRODUCT.xls&quot;));
+Workbook wb = new HSSFWorkbook(is);        //打开一个模板文件，工作簿
+Sheet sheet = wb.getSheetAt(0);            //获取到第一个工作表
+
+Row nRow = null;
+Cell nCell = null;
+int rowNo = 0;                            //行号
+int colNo = 1;                            //列号
+
+//获取模板上的单元格样式
+nRow = sheet.getRow(2);
+
+//客户的样式
+nCell = nRow.getCell(1);
+CellStyle customStyle = nCell.getCellStyle();    
+</code></pre><h1 id="4-POI百万数据打印"><a href="#4-POI百万数据打印" class="headerlink" title="4.POI百万数据打印"></a>4.POI百万数据打印</h1><ol>
+<li>从数据库读取数据，LIST在构造时十分耗费内存，还占用CPU资源</li>
+<li>Xlsx一个单sheet可以支持1048576条数据。它加工这些数据时，都是暂时放在内存中。报内存堆溢出。</li>
+<li>POI意识到这个问题，它在高版本解决了海量数据导出时性能问题。可以实现非常平滑的导出。</li>
+</ol>
+<h2 id="4-1解决方法"><a href="#4-1解决方法" class="headerlink" title="4.1解决方法"></a>4.1解决方法</h2><h3 id="4-1-1-POI-ooxml-SXSSF对象"><a href="#4-1-1-POI-ooxml-SXSSF对象" class="headerlink" title="4.1.1 POI ooxml SXSSF对象"></a>4.1.1 POI ooxml SXSSF对象</h3><pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+    &lt;artifactId&gt;poi&lt;/artifactId&gt;
+    &lt;version&gt;3.9&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
+    &lt;version&gt;3.9&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="4-1-2-它解决思路："><a href="#4-1-2-它解决思路：" class="headerlink" title="4.1.2 它解决思路："></a>4.1.2 它解决思路：</h3><p>在打印过程中，已经加工完的对象，临时存到一个临时文件中，它采用xml临时文件。最终处理完时，将这些临时内容写入到最终的xlsx文件中。</p>
+<pre><code>Workbook wb = new SXSSFWorkbook(100);    //创建excel文件，内存只有100条记录【关键语句】
+public SXSSFWorkbook(int rowAccessWindowSize){
+this(null /*workbook*/, rowAccessWindowSize);
+</code></pre><p>}<br>每rowAccessWindowSize条对象时，写一次缓存。</p>
+<p>！！！！ 这个对象不能使用模板。只能用于到数据量的导出。（没有格式）</p>
+<h1 id="5-CSV文件，导入到数据库中"><a href="#5-CSV文件，导入到数据库中" class="headerlink" title="5.    CSV文件，导入到数据库中"></a>5.    CSV文件，导入到数据库中</h1><p>CSV是一个标准的导入导出文件格式，实际是一个txt文件</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/jk4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1315,7 +1500,7 @@ from
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1328,7 +1513,7 @@ from
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
