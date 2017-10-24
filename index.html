@@ -250,6 +250,126 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/linux-mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/24/linux-mysql/" itemprop="url">
+                  linux虚拟机安装javaweb环境（Mysql蛋疼的安装）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T09:26:46+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-sudo-vim-etc-hosts"><a href="#1-sudo-vim-etc-hosts" class="headerlink" title="1.sudo vim /etc/hosts"></a>1.sudo vim /etc/hosts</h1><p>修改hosts文件，将镜像原地址写上 并对应相应域名</p>
+<p><img src="/images/l1.png" alt="Alt text"></p>
+<h1 id="2-sudo-vim-etc-apt-sources-list"><a href="#2-sudo-vim-etc-apt-sources-list" class="headerlink" title="2.sudo vim /etc/apt/sources.list"></a>2.sudo vim /etc/apt/sources.list</h1><p>更改原地址<br><img src="/images/l2.png" alt="Alt text"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/yolo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -810,137 +930,6 @@ tar -xzvf  apache-tomcat.tar.gz
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/jk10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FangChao.Qu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiangImg.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FangChao.Qu Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/21/jk10/" itemprop="url">
-                  基于SSM的商贸平台项目（第十天）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-21T09:26:46+08:00">
-                2017-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-数据库总结"><a href="#1-数据库总结" class="headerlink" title="1.数据库总结"></a>1.数据库总结</h1><h2 id="1-1-打断设计："><a href="#1-1-打断设计：" class="headerlink" title="1.1 打断设计："></a>1.1 打断设计：</h2><p>在报运中它的数据库设计比较难，我在这设计时进行打断设计，实现跳跃查询。在设计时我们业务关联曾经是比较多的，报运和购销合同一对多关联，合同又跟货物一对多，货物又跟附件一对多。关联曾经过多，查询效率过多，这当数据大时（100万），查询效率就可能非常低，所以我对这的设计进行了优化，在主表中加入一个打断设计的字段，这个字段存储子表的多个主键。这样就无需建立外键关联。这样设计后，报运查询相关合同下的货物信息时，不像关联方式，必须由报运去找多个合同，再通过每个合同去找多个货物信息，而直接通过打断字段，利用sql in子查询从报运直接去查找合同下的货物信息。这样减少了关联曾经，查询效率很大提高。当系统的用户数据越来越多，业务关联层级越多，这种设计方式的效率越高。它跳跃了中间多层，实现跳跃查询。</p>
-<h2 id="1-2-数据搬家（数据冗余）"><a href="#1-2-数据搬家（数据冗余）" class="headerlink" title="1.2 数据搬家（数据冗余）"></a>1.2 数据搬家（数据冗余）</h2><p>在报运时，本身货物信息需要新增7个字段，毛重、净重、长、宽、高、出口单价、含税，还需要合同下的货物的货号、数量、包装单位、件数等。如果按原始设计，读取报运信息后，一部分货物信息要从关联的报运下的货物信息中读取，还有一部分要从合同下的货物读取。这样设计比较麻烦，开发结构复杂，业务不利于开发人员学习业务。我们对其进行优化，我们为了查询更快，关系更简单，代码更简单，将相关的合同在报运新增时，直接把所需要的部分货物信息，货号、数量、包装单位、件数直接复制到报运下的货物表中，这样在报运修改时，直接补充7个字段。在需要报运信息时。就变得简单，直接读取报运下的货物表即可。同时，为了后续业务读取这部分货物信息，还有它们关联的附件信息，我们直接也将合同下的附件信息整体搬迁。这样后续的业务直接可以从报运相关的表中查询，而无需通过多级关联去合同下去找，关联曾经变少，效率提高很多。</p>
-<h2 id="1-3-一对一的特殊设计"><a href="#1-3-一对一的特殊设计" class="headerlink" title="1.3 一对一的特殊设计"></a>1.3 一对一的特殊设计</h2><p>业务装箱和委托、发票、财务都是一对一的。我们为了设计上清晰，我们采用4张。主外键为一个值，委托、发票、财务直接就存放的是装箱单的ID。这样在程序中只要获得其中一个的ID，就可以查询其中任何一个对象。改变传统设计，传统设计财务关联发票，发票关联委托，委托关联装箱。财务需要获取报运的信息和装箱的信息，这时要财务要找到发票，发票找到委托，委托找到装箱，装箱找到多个报运。这样关联层级过多，速度比较慢。我们进行优化设计，改变对应关系，直接设计财务和装箱进行关联。上面的需求就非常简单，通过财务找到装箱，直接获取装箱的部分需要的信息，在通过装箱的打断设计字段，直接获取报运下的货物信息。实现多次跳跃查询。</p>
-<h1 id="2-技术总结"><a href="#2-技术总结" class="headerlink" title="2.技术总结"></a>2.技术总结</h1><h2 id="2-2-页面结构，批量修改自定义控件"><a href="#2-2-页面结构，批量修改自定义控件" class="headerlink" title="2.2 页面结构，批量修改自定义控件"></a>2.2 页面结构，批量修改自定义控件</h2><p>在报运货物的修改中，批量进行数据修改，批量的业务就可以直接套用。利用动态表格技术，实现动态的往一个table中增加tr，动态往tr总增加td，它文本框，单选框，多选框，下拉框，大文本。利用一个js函数addRecord反复调用，就可以实现往表格中插入数据。数据在后台service层进行js串拼接，在拼接过程中，将业务数据就拼接进去。然后利用jQuery ready事件进行js动态执行。由于js运行非常快，用户感知不到表格数据的动态增加，他以为直接展现。如果数据在600行。这时不能使用通过ready事件一行一行执行。如果超过600行，采用<c:foreach>的方式来实现。在批量修改时，我就增加了一个行标识，来标识本行记录是否修改，如果修改了，在后台就进行更新，如果没有修改，就不更新操作。</c:foreach></p>
-<h2 id="2-3POI复杂报表打印"><a href="#2-3POI复杂报表打印" class="headerlink" title="2.3POI复杂报表打印"></a>2.3POI复杂报表打印</h2><p>购销合同复杂报表的打印，这个报表中需要插入用户LOGO，可以插入多个货物的图片，可以插入一根分割线，对合计的值进行公式的设置，打印时用户可以自定义设置打印一款货物，还是打印两款货物，货物生产厂家如果不同，还必须另起一页。获取一个合同信息和多个货物信息。</p>
-<h2 id="2-3-POI百万数据导出"><a href="#2-3-POI百万数据导出" class="headerlink" title="2.3 POI百万数据导出"></a>2.3 POI百万数据导出</h2><p>在POI高版本中提供了一个特殊的构造方法SXSSF对象，利用这个对象，在构造时可以设定一个参数，产生对象的数量，根据这个数量，在大数据量导出时，当创建这么多对象后，直接POI写到xml临时文件中。当真正写文件时，再从临时文件中获取信息，输出内容。这样做解决了早期版本中，直接在内存中创建大量对象，导致非常容易内存堆溢出。它不支持模板文件操作。</p>
-<h2 id="2-4-amcharts-分析统计"><a href="#2-4-amcharts-分析统计" class="headerlink" title="2.4 amcharts 分析统计"></a>2.4 amcharts 分析统计</h2><ol>
-<li>组织数据</li>
-<li>拼接字符串，拼接为amchart官网Demo的html格式</li>
-</ol>
-<h1 id="3-革命尚未成功，还需继续努力"><a href="#3-革命尚未成功，还需继续努力" class="headerlink" title="3.革命尚未成功，还需继续努力"></a>3.革命尚未成功，还需继续努力</h1><ol>
-<li>工作流采用最新的Activiti5 5.16版本，它会自动创建24张表，多了一张日志表。在购销合同上报时，同时启动流程。销售专责就行购销合同的处理，然后提交流程到销售部领导的审批，销售部领导审批通过后，提交到船运部。船运部报运专责开始处理报运业务，处理完成，提交给船运部报运经理进行审核，报运经理审核通过后，他提交给船运部装箱专责。船运部装箱专责处理装箱业务，处理完成提交给装箱经理审批，装箱经理审批后，提交给委托专责，委托专责处理委托业务，处理完成提交给发票经理审批，发票经理审批通过后提交给财务部，财务部财务专责处理内部核算，提交给财务经理审批。财务经理审批通过后，流程完成。</li>
-<li>并发处理<br>购销合同打印，首先打印时，将临时文件放在服务器的临时目录。基于windows处理文件并发机制。当打印时产生一个文件名，先判断临时目录中文件是否存在，如果存在自动给其再编一个新的名称，再次判断如果这个名称还冲突，再重新命名，只到没有冲突为止。<br>下载，下载时控制下载的人数，当这个数量超过阀值（10个，通过配置文件配置），action进行转向友好提示页面，“用户当前下载人数过多，请稍后下载”。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/linux1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1126,6 +1115,137 @@ kill -9 pid  杀掉进程  （-9 表示强制杀死）
 <p> tar -xzvf testdir.tar.gz  解压到当前目录下</p>
 <p> tar -zxvf testdir.tar.gz -C Downloads/   解压到指定的Downloads目录下</p>
 </li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/jk10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FangChao.Qu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiangImg.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FangChao.Qu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/21/jk10/" itemprop="url">
+                  基于SSM的商贸平台项目（第十天）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-21T09:26:46+08:00">
+                2017-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-数据库总结"><a href="#1-数据库总结" class="headerlink" title="1.数据库总结"></a>1.数据库总结</h1><h2 id="1-1-打断设计："><a href="#1-1-打断设计：" class="headerlink" title="1.1 打断设计："></a>1.1 打断设计：</h2><p>在报运中它的数据库设计比较难，我在这设计时进行打断设计，实现跳跃查询。在设计时我们业务关联曾经是比较多的，报运和购销合同一对多关联，合同又跟货物一对多，货物又跟附件一对多。关联曾经过多，查询效率过多，这当数据大时（100万），查询效率就可能非常低，所以我对这的设计进行了优化，在主表中加入一个打断设计的字段，这个字段存储子表的多个主键。这样就无需建立外键关联。这样设计后，报运查询相关合同下的货物信息时，不像关联方式，必须由报运去找多个合同，再通过每个合同去找多个货物信息，而直接通过打断字段，利用sql in子查询从报运直接去查找合同下的货物信息。这样减少了关联曾经，查询效率很大提高。当系统的用户数据越来越多，业务关联层级越多，这种设计方式的效率越高。它跳跃了中间多层，实现跳跃查询。</p>
+<h2 id="1-2-数据搬家（数据冗余）"><a href="#1-2-数据搬家（数据冗余）" class="headerlink" title="1.2 数据搬家（数据冗余）"></a>1.2 数据搬家（数据冗余）</h2><p>在报运时，本身货物信息需要新增7个字段，毛重、净重、长、宽、高、出口单价、含税，还需要合同下的货物的货号、数量、包装单位、件数等。如果按原始设计，读取报运信息后，一部分货物信息要从关联的报运下的货物信息中读取，还有一部分要从合同下的货物读取。这样设计比较麻烦，开发结构复杂，业务不利于开发人员学习业务。我们对其进行优化，我们为了查询更快，关系更简单，代码更简单，将相关的合同在报运新增时，直接把所需要的部分货物信息，货号、数量、包装单位、件数直接复制到报运下的货物表中，这样在报运修改时，直接补充7个字段。在需要报运信息时。就变得简单，直接读取报运下的货物表即可。同时，为了后续业务读取这部分货物信息，还有它们关联的附件信息，我们直接也将合同下的附件信息整体搬迁。这样后续的业务直接可以从报运相关的表中查询，而无需通过多级关联去合同下去找，关联曾经变少，效率提高很多。</p>
+<h2 id="1-3-一对一的特殊设计"><a href="#1-3-一对一的特殊设计" class="headerlink" title="1.3 一对一的特殊设计"></a>1.3 一对一的特殊设计</h2><p>业务装箱和委托、发票、财务都是一对一的。我们为了设计上清晰，我们采用4张。主外键为一个值，委托、发票、财务直接就存放的是装箱单的ID。这样在程序中只要获得其中一个的ID，就可以查询其中任何一个对象。改变传统设计，传统设计财务关联发票，发票关联委托，委托关联装箱。财务需要获取报运的信息和装箱的信息，这时要财务要找到发票，发票找到委托，委托找到装箱，装箱找到多个报运。这样关联层级过多，速度比较慢。我们进行优化设计，改变对应关系，直接设计财务和装箱进行关联。上面的需求就非常简单，通过财务找到装箱，直接获取装箱的部分需要的信息，在通过装箱的打断设计字段，直接获取报运下的货物信息。实现多次跳跃查询。</p>
+<h1 id="2-技术总结"><a href="#2-技术总结" class="headerlink" title="2.技术总结"></a>2.技术总结</h1><h2 id="2-2-页面结构，批量修改自定义控件"><a href="#2-2-页面结构，批量修改自定义控件" class="headerlink" title="2.2 页面结构，批量修改自定义控件"></a>2.2 页面结构，批量修改自定义控件</h2><p>在报运货物的修改中，批量进行数据修改，批量的业务就可以直接套用。利用动态表格技术，实现动态的往一个table中增加tr，动态往tr总增加td，它文本框，单选框，多选框，下拉框，大文本。利用一个js函数addRecord反复调用，就可以实现往表格中插入数据。数据在后台service层进行js串拼接，在拼接过程中，将业务数据就拼接进去。然后利用jQuery ready事件进行js动态执行。由于js运行非常快，用户感知不到表格数据的动态增加，他以为直接展现。如果数据在600行。这时不能使用通过ready事件一行一行执行。如果超过600行，采用<c:foreach>的方式来实现。在批量修改时，我就增加了一个行标识，来标识本行记录是否修改，如果修改了，在后台就进行更新，如果没有修改，就不更新操作。</c:foreach></p>
+<h2 id="2-3POI复杂报表打印"><a href="#2-3POI复杂报表打印" class="headerlink" title="2.3POI复杂报表打印"></a>2.3POI复杂报表打印</h2><p>购销合同复杂报表的打印，这个报表中需要插入用户LOGO，可以插入多个货物的图片，可以插入一根分割线，对合计的值进行公式的设置，打印时用户可以自定义设置打印一款货物，还是打印两款货物，货物生产厂家如果不同，还必须另起一页。获取一个合同信息和多个货物信息。</p>
+<h2 id="2-3-POI百万数据导出"><a href="#2-3-POI百万数据导出" class="headerlink" title="2.3 POI百万数据导出"></a>2.3 POI百万数据导出</h2><p>在POI高版本中提供了一个特殊的构造方法SXSSF对象，利用这个对象，在构造时可以设定一个参数，产生对象的数量，根据这个数量，在大数据量导出时，当创建这么多对象后，直接POI写到xml临时文件中。当真正写文件时，再从临时文件中获取信息，输出内容。这样做解决了早期版本中，直接在内存中创建大量对象，导致非常容易内存堆溢出。它不支持模板文件操作。</p>
+<h2 id="2-4-amcharts-分析统计"><a href="#2-4-amcharts-分析统计" class="headerlink" title="2.4 amcharts 分析统计"></a>2.4 amcharts 分析统计</h2><ol>
+<li>组织数据</li>
+<li>拼接字符串，拼接为amchart官网Demo的html格式</li>
+</ol>
+<h1 id="3-革命尚未成功，还需继续努力"><a href="#3-革命尚未成功，还需继续努力" class="headerlink" title="3.革命尚未成功，还需继续努力"></a>3.革命尚未成功，还需继续努力</h1><ol>
+<li>工作流采用最新的Activiti5 5.16版本，它会自动创建24张表，多了一张日志表。在购销合同上报时，同时启动流程。销售专责就行购销合同的处理，然后提交流程到销售部领导的审批，销售部领导审批通过后，提交到船运部。船运部报运专责开始处理报运业务，处理完成，提交给船运部报运经理进行审核，报运经理审核通过后，他提交给船运部装箱专责。船运部装箱专责处理装箱业务，处理完成提交给装箱经理审批，装箱经理审批后，提交给委托专责，委托专责处理委托业务，处理完成提交给发票经理审批，发票经理审批通过后提交给财务部，财务部财务专责处理内部核算，提交给财务经理审批。财务经理审批通过后，流程完成。</li>
+<li>并发处理<br>购销合同打印，首先打印时，将临时文件放在服务器的临时目录。基于windows处理文件并发机制。当打印时产生一个文件名，先判断临时目录中文件是否存在，如果存在自动给其再编一个新的名称，再次判断如果这个名称还冲突，再重新命名，只到没有冲突为止。<br>下载，下载时控制下载的人数，当这个数量超过阀值（10个，通过配置文件配置），action进行转向友好提示页面，“用户当前下载人数过多，请稍后下载”。</li>
 </ol>
 
           
@@ -1756,878 +1876,6 @@ function addTRRecord(objId, id, productNo, cnumber, grossWeight, netWeight, size
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/27/jk6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FangChao.Qu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiangImg.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FangChao.Qu Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/27/jk6/" itemprop="url">
-                  基于SSM的商贸平台项目（第六天）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-27T09:26:46+08:00">
-                2017-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="报表引擎，复杂的报表打印"><a href="#报表引擎，复杂的报表打印" class="headerlink" title="报表引擎，复杂的报表打印"></a>报表引擎，复杂的报表打印</h1><p> <img src="/images/6style.png" alt="Alt text"></p>
-<h2 id="1-技术难点"><a href="#1-技术难点" class="headerlink" title="1.技术难点"></a>1.技术难点</h2><ol>
-<li><p>插入图片，POI插入图片时，设定区域，自动缩放到这个区域中，图片要设置偏移量<br> HSSFPatriarch patriarch = sheet.createDrawingPatriarch();        //add picture<br> poiUtil.setPicture(wb, patriarch, path+”make/xlsprint/logo.jpg”, curRow, 2, curRow+4, 2);</p>
-</li>
-<li><p>模板，对于购销合同它不能直接做模板。代码中不能做这个功能。Excel支持区域复制。但是目前POI不直接支持区域复制。（合并单元格在sheet对象中、图片、线等）（基于用户使用系统，以及POI不直接支持区域复制，所以它不能直接使用模板）<br>A.    只是改变列宽<br>B.    画一个sheet，利用poi支持sheet的复制，保留样式。</p>
-</li>
-<li><p>插入一根线，设置两个坐标，它直接连线，可以是直线，可以是斜线，可以设置偏移量<br>poiUtil.setLine(wb, patriarch, curRow, 2, curRow, 8);    //draw line</p>
-</li>
-<li><p>合并单元格，特点：合并单元格的边线样式，它实际上是在合并前的单元格上设置的。特殊的地方：在单元格如果有样式，合并单元格的这几个格子都必须设置边线样式。<br>CellRangeAddress region = null;<br>region = new CellRangeAddress(curRow-1, curRow-1, 1, 3);    //纵向合并单元格<br>//不需要设置内容，只设置样式，补齐线。</p>
-<pre><code>for(int j=2;j&lt;9;j++){
-    nCell = nRow.createCell(j);
-    nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-}
-</code></pre></li>
-<li><p>换行<br>curStyle.setWrapText(true);</p>
-</li>
-<li>设置人民币符号（前缀）<br>format.getFormat(“\”￥\”#,###,###.00”);</li>
-<li>设置公式，乘法，合计公式<br>nCell.setCellType(HSSFCell.CELL_TYPE_FORMULA);<br>nCell.setCellFormula(“F”+String.valueOf(curRow)+”*H”+String.valueOf(curRow));</li>
-<li>实现审单人的人名等量空格替换，实现它后面的位置不变（工具类）<br>utilFuns.fixSpaceStr(contract.getCheckBy(),26)</li>
-<li>单元格自适应（工具类）<br>float height = poiUtil.getCellAutoHeight(printMap.get(“Request”), 12f);        //自动高度</li>
-<li><p>数据和业务分离,一页数据封装到一个map中，以业务字段名称定义KEY，以string定义内容,所有页面封装到一个arraylist。<br> Map<string,string> pageMap = null;<br> List<map> pageList = new ArrayList();            //打印页</map></string,string></p>
-</li>
-<li><p>插入分页符</p>
-<pre><code>if(p&gt;0){
-    sheet.setRowBreak(curRow++);    //在第startRow行设置分页符
-}
-</code></pre></li>
-<li>公用的工具类PoiUtil poiUtil = new PoiUtil();  样式，特殊内容封装</li>
-<li>return format.getFormat(“\”￥\”#,###,##0.00”); // 设置格式<br>0代表，这位值如果不为零，显示原来的内容，直接输出0<br>,#代表，这位值如果存在，就直接显示，不存在，就不显示。</li>
-<li>nCell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);<h2 id="2-代码整理"><a href="#2-代码整理" class="headerlink" title="2.代码整理"></a>2.代码整理</h2></li>
-</ol>
-<pre><code>import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFPatriarch;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.CellRangeAddress;
-
-import cn.itcast.jk.vo.ContractProductVO;
-import cn.itcast.jk.vo.ContractVO;
-import cn.itcast.util.DownloadUtil;
-import cn.itcast.util.UtilFuns;
-import cn.itcast.util.file.PoiUtil;
-
-public class ContractPrint{
-
-public void print(ContractVO contract,String path, HttpServletResponse response) throws Exception{
-    //相同厂家的信息一起打印
-    List&lt;ContractProductVO&gt; oList = contract.getContractProducts();
-    UtilFuns utilFuns = new UtilFuns();
-    String tempXlsFile = path + &quot;make/xlsprint/tCONTRACT.xls&quot;;        //获取模板文件
-
-    //填写每页的内容，之后在循环每页读取打印
-    Map&lt;String,String&gt; pageMap = null;
-    List&lt;Map&gt; pageList = new ArrayList();            //打印页
-
-    ContractProductVO oProduct = null;
-    String stars = &quot;&quot;;
-    for(int j=0;j&lt;contract.getImportNum();j++){        //重要程度
-        stars += &quot;★&quot;;
-    }
-
-    String oldFactory = &quot;&quot;;
-    for(int i=0;i&lt;oList.size();i++){
-        oProduct = oList.get(i);    //获得货物
-        pageMap = new HashMap();    //每页的内容
-
-        pageMap.put(&quot;Offeror&quot;, &quot;收 购 方：&quot; + contract.getOfferor());
-        pageMap.put(&quot;Factory&quot;, &quot;生产工厂：&quot; + oProduct.getFactory().getFactoryName());
-        pageMap.put(&quot;ContractNo&quot;, &quot;合 同 号：&quot; + contract.getContractNo());
-        pageMap.put(&quot;Contractor&quot;, &quot;联 系 人：&quot; + oProduct.getFactory().getContacts());
-        pageMap.put(&quot;SigningDate&quot;, &quot;签单日期：&quot;+UtilFuns.formatDateTimeCN(UtilFuns.dateTimeFormat(contract.getSigningDate())));
-        pageMap.put(&quot;Phone&quot;, &quot;电    话：&quot; + oProduct.getFactory().getPhone());
-        pageMap.put(&quot;InputBy&quot;, &quot;制单：&quot; + contract.getInputBy());
-        pageMap.put(&quot;CheckBy&quot;, &quot;审单：&quot;+ utilFuns.fixSpaceStr(contract.getCheckBy(),26)+&quot;验货员：&quot;+utilFuns.convertNull(contract.getInspector()));
-        pageMap.put(&quot;Remark&quot;, &quot;  &quot;+contract.getRemark());
-        pageMap.put(&quot;Request&quot;, &quot;  &quot;+contract.getCrequest());
-
-        pageMap.put(&quot;ProductImage&quot;, oProduct.getProductImage());
-        pageMap.put(&quot;ProductDesc&quot;, oProduct.getProductDesc());
-        pageMap.put(&quot;Cnumber&quot;, String.valueOf(oProduct.getCnumber().doubleValue()));
-        if(oProduct.getPackingUnit().equals(&quot;PCS&quot;)){
-            pageMap.put(&quot;PackingUnit&quot;, &quot;只&quot;);
-        }else if(oProduct.getPackingUnit().equals(&quot;SETS&quot;)){
-            pageMap.put(&quot;PackingUnit&quot;, &quot;套&quot;);
-        }
-        pageMap.put(&quot;Price&quot;, String.valueOf(oProduct.getPrice().doubleValue()));
-        pageMap.put(&quot;ProductNo&quot;, oProduct.getProductNo());
-
-        oldFactory = oProduct.getFactory().getFactoryName();
-
-        if(contract.getPrintStyle().equals(&quot;2&quot;)){
-            i++;    //读取第二个货物信息
-            if(i&lt;oList.size()){
-                oProduct = oList.get(i);
-
-                if(oProduct.getFactory().getFactoryName().equals(oldFactory)){    //厂家不同另起新页打印，除去第一次的比较
-
-                    pageMap.put(&quot;ProductImage2&quot;, oProduct.getProductImage());
-                    pageMap.put(&quot;ProductDesc2&quot;, oProduct.getProductDesc());
-                    pageMap.put(&quot;Cnumber2&quot;, String.valueOf(oProduct.getCnumber().doubleValue()));
-                    if(oProduct.getPackingUnit().equals(&quot;PCS&quot;)){
-                        pageMap.put(&quot;PackingUnit2&quot;, &quot;只&quot;);
-                    }else if(oProduct.getPackingUnit().equals(&quot;SETS&quot;)){
-                        pageMap.put(&quot;PackingUnit2&quot;, &quot;套&quot;);
-                    }                        
-                    pageMap.put(&quot;Price2&quot;, String.valueOf(oProduct.getPrice().doubleValue()));
-                    //pageMap.put(&quot;Amount2&quot;, String.valueOf(oProduct.getAmount().doubleValue()));            //在excel中金额采用公式，所以无需准备数据
-                    pageMap.put(&quot;ProductNo2&quot;, oProduct.getProductNo());
-                }else{
-                    i--;    //tip:list退回
-                }
-            }else{
-                pageMap.put(&quot;ProductNo2&quot;, null);    //后面依据此判断是否有第二个货物
-            }
-        }
-
-        pageMap.put(&quot;ContractDesc&quot;, stars+&quot; 货物描述&quot;);            //重要程度 + 货物描述
-
-        pageList.add(pageMap);
-    }
-
-        int cellHeight = 96;    //一个货物的高度            用户需求，一个货物按192高度打印，后来又嫌难看，打印高度和2款高度一样。
-//        if(contract.getPrintStyle().equals(&quot;2&quot;)){
-//            cellHeight = 96;    //两个货物的高度
-//        }
-
-    PoiUtil poiUtil = new PoiUtil();
-    HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(tempXlsFile));    //打开excel文件
-    HSSFFont defaultFont10 = poiUtil.defaultFont10(wb);        //设置字体
-    HSSFFont defaultFont12 = poiUtil.defaultFont12(wb);        //设置字体
-    HSSFFont blackFont = poiUtil.blackFont12(wb);            //设置字体
-    Short rmb2Format = poiUtil.rmb2Format(wb);                //设置格式
-    Short rmb4Format = poiUtil.rmb4Format(wb);                //设置格式
-
-
-    HSSFSheet sheet = wb.getSheetAt(0);                //选择第一个工作簿
-    wb.setSheetName(0, &quot;购销合同&quot;);                    //设置工作簿的名称
-
-
-    //sheet.setDefaultColumnWidth((short) 20);         // 设置每列默认宽度
-
-//        POI分页符有BUG，必须在模板文件中插入一个分页符，然后再此处删除预设的分页符；最后在下面重新设置分页符。
-//        sheet.setAutobreaks(false);
-//        int iRowBreaks[] = sheet.getRowBreaks();
-//        sheet.removeRowBreak(3);
-//        sheet.removeRowBreak(4);
-//        sheet.removeRowBreak(5);
-//        sheet.removeRowBreak(6);
-
-    CellRangeAddress region = null;
-    HSSFPatriarch patriarch = sheet.createDrawingPatriarch();        //add picture
-
-    HSSFRow nRow = null;
-    HSSFCell nCell   = null;
-    int curRow = 0;
-
-    //打印每页
-    Map&lt;String,String&gt; printMap = null;
-    for(int p=0;p&lt;pageList.size();p++){
-        printMap = pageList.get(p);
-
-        if(p&gt;0){
-            sheet.setRowBreak(curRow++);    //在第startRow行设置分页符
-        }
-
-
-        //设置logo图片
-        poiUtil.setPicture(wb, patriarch, path+&quot;make/xlsprint/logo.jpg&quot;, curRow, 2, curRow+4, 2);
-
-        //header
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(21);
-
-        nCell   = nRow.createCell((3));
-        nCell.setCellValue(&quot;SHAANXI&quot;);
-        nCell.setCellStyle(headStyle(wb));
-
-        //header
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(41);
-
-        nCell   = nRow.createCell((3));
-        nCell.setCellValue(&quot;     JK INTERNATIONAL &quot;);
-        nCell.setCellStyle(tipStyle(wb));
-
-        curRow++;
-
-        //header
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(20);
-
-        nCell   = nRow.createCell((1));
-        nCell.setCellValue(&quot;                 西经济技术开发区西城一路27号无迪大厦19楼&quot;);
-        nCell.setCellStyle(addressStyle(wb));
-
-        //header
-        nCell   = nRow.createCell((6));
-        nCell.setCellValue(&quot; CO., LTD.&quot;);
-        nCell.setCellStyle(ltdStyle(wb));
-
-        //header
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(15);
-
-        nCell   = nRow.createCell((1));
-        nCell.setCellValue(&quot;                   TEL: 0086-29-86339371  FAX: 0086-29-86303310               E-MAIL: ijackix@glass.cn&quot;);
-        nCell.setCellStyle(telStyle(wb));
-
-        //line
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(7);
-
-        poiUtil.setLine(wb, patriarch, curRow, 2, curRow, 8);    //draw line
-
-        //header
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(30);
-
-        nCell   = nRow.createCell((4));
-        nCell.setCellValue(&quot;    购   销   合   同&quot;);
-        nCell.setCellStyle(titleStyle(wb));
-
-        //Offeror
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(20);
-
-        nCell   = nRow.createCell((1));
-        nCell.setCellValue(printMap.get(&quot;Offeror&quot;));
-        nCell.setCellStyle(poiUtil.titlev12(wb, blackFont));
-
-        //Facotry
-        nCell   = nRow.createCell((5));
-        nCell.setCellValue(printMap.get(&quot;Factory&quot;));
-        nCell.setCellStyle(poiUtil.titlev12(wb, blackFont));
-
-        //ContractNo
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(20);
-
-        nCell   = nRow.createCell(1);
-        nCell.setCellValue(printMap.get(&quot;ContractNo&quot;));
-        nCell.setCellStyle(poiUtil.titlev12(wb, blackFont));
-
-        //Contractor
-        nCell  = nRow.createCell(5);
-        nCell.setCellValue(printMap.get(&quot;Contractor&quot;));
-        nCell.setCellStyle(poiUtil.titlev12(wb, blackFont));
-
-        //SigningDate
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(20);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(printMap.get(&quot;SigningDate&quot;));
-        nCell.setCellStyle(poiUtil.titlev12(wb, blackFont));
-
-        //Phone
-        nCell = nRow.createCell(5);
-        nCell.setCellValue(printMap.get(&quot;Phone&quot;));
-        nCell.setCellStyle(poiUtil.titlev12(wb, blackFont));
-
-        //importNum
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(24);
-
-        region = new CellRangeAddress(curRow-1, curRow-1, 1, 3);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(&quot;产品&quot;);
-        nCell.setCellStyle(thStyle(wb));        
-
-        nCell = nRow.createCell(2);
-        nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-
-        nCell = nRow.createCell(3);
-        nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-
-        nCell = nRow.createCell(4);
-        nCell.setCellValue(printMap.get(&quot;ContractDesc&quot;));
-        nCell.setCellStyle(thStyle(wb));    
-
-        region = new CellRangeAddress(curRow-1, curRow-1, 5, 6);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(5);
-        nCell.setCellValue(&quot;数量&quot;);
-        nCell.setCellStyle(thStyle(wb));    
-
-        nCell = nRow.createCell(6);
-        nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));            
-
-        nCell = nRow.createCell(7);
-        nCell.setCellValue(&quot;单价&quot;);
-        nCell.setCellStyle(thStyle(wb));                        
-
-        nCell = nRow.createCell(8);
-        nCell.setCellValue(&quot;总金额&quot;);
-        nCell.setCellStyle(thStyle(wb));                        
-
-
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(96);
-
-        region = new CellRangeAddress(curRow-1, curRow-1, 1, 3);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        //插入产品图片
-        if(UtilFuns.isNotEmpty(printMap.get(&quot;ProductImage&quot;))){
-            System.out.println(printMap.get(&quot;ProductImage&quot;));
-            poiUtil.setPicture(wb, patriarch, path+&quot;ufiles/jquery/&quot;+printMap.get(&quot;ProductImage&quot;), curRow-1, 1, curRow, 3);
-        }
-
-        nCell = nRow.createCell(2);
-        nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-
-        nCell = nRow.createCell(3);
-        nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-
-        //ProductDesc
-        region = new CellRangeAddress(curRow-1, curRow, 4, 4);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(4);
-        nCell.setCellValue(printMap.get(&quot;ProductDesc&quot;));
-        nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));        
-
-        //Cnumber
-        region = new CellRangeAddress(curRow-1, curRow, 5, 5);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(5);
-        nCell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);
-        nCell.setCellValue(Double.parseDouble(printMap.get(&quot;Cnumber&quot;)));
-        nCell.setCellStyle(poiUtil.numberrv10_BorderThin(wb, defaultFont10));    
-
-        //Unit
-        region = new CellRangeAddress(curRow-1, curRow, 6, 6);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(6);
-        nCell.setCellValue(printMap.get(&quot;PackingUnit&quot;));
-        nCell.setCellStyle(poiUtil.moneyrv10_BorderThin(wb, defaultFont10, rmb4Format));    
-
-        //Price
-        region = new CellRangeAddress(curRow-1, curRow, 7, 7);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(7);
-        nCell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);
-        nCell.setCellValue(Double.parseDouble(printMap.get(&quot;Price&quot;)));
-        nCell.setCellStyle(poiUtil.moneyrv10_BorderThin(wb, defaultFont10, rmb4Format));
-
-
-        //Amount
-        region = new CellRangeAddress(curRow-1, curRow, 8, 8);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        nCell = nRow.createCell(8);
-        if(UtilFuns.isNotEmpty(printMap.get(&quot;Cnumber&quot;)) &amp;&amp; UtilFuns.isNotEmpty(printMap.get(&quot;Price&quot;))){
-            nCell.setCellType(HSSFCell.CELL_TYPE_FORMULA);
-            nCell.setCellFormula(&quot;F&quot;+String.valueOf(curRow)+&quot;*H&quot;+String.valueOf(curRow));
-        }
-        nCell.setCellStyle(poiUtil.moneyrv10_BorderThin(wb, defaultFont10, rmb4Format));            
-
-        curRow++;
-
-        region = new CellRangeAddress(curRow-1, curRow-1, 1, 3);    //纵向合并单元格 
-        sheet.addMergedRegion(region);
-
-        //ProductNo
-        nRow = sheet.createRow(curRow-1);
-        nRow.setHeightInPoints(24);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(printMap.get(&quot;ProductNo&quot;));
-        nCell.setCellStyle(poiUtil.notecv10_BorderThin(wb, defaultFont10));
-
-        for(int j=2;j&lt;9;j++){
-            nCell = nRow.createCell(j);
-            nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-        }
-
-
-
-        if(contract.getPrintStyle().equals(&quot;2&quot;) &amp;&amp; UtilFuns.isNotEmpty(printMap.get(&quot;ProductNo2&quot;))){
-            nRow = sheet.createRow(curRow++);
-            nRow.setHeightInPoints(96);
-
-            region = new CellRangeAddress(curRow-1, curRow-1, 1, 3);    //纵向合并单元格 
-            sheet.addMergedRegion(region);
-
-            //插入产品图片
-            if(UtilFuns.isNotEmpty(printMap.get(&quot;ProductImage2&quot;))){
-                System.out.println(printMap.get(&quot;ProductImage2&quot;));
-                poiUtil.setPicture(wb, patriarch, path+&quot;ufiles/jquery/&quot;+printMap.get(&quot;ProductImage2&quot;), curRow-1, 1, curRow, 3);
-            }
-
-            //ProductDesc
-            region = new CellRangeAddress(curRow-1, curRow, 4, 4);    //纵向合并单元格 
-            sheet.addMergedRegion(region);
-
-            nCell = nRow.createCell(4);
-            nCell.setCellValue(printMap.get(&quot;ProductDesc2&quot;));
-            nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));        
-
-            //Cnumber
-            region = new CellRangeAddress(curRow-1, curRow, 5, 5);    //纵向合并单元格 
-            sheet.addMergedRegion(region);
-
-            nCell = nRow.createCell(5);
-            nCell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);
-            nCell.setCellValue(Double.parseDouble(printMap.get(&quot;Cnumber2&quot;)));
-            nCell.setCellStyle(poiUtil.numberrv10_BorderThin(wb, defaultFont10));    
-
-            //Unit
-            region = new CellRangeAddress(curRow-1, curRow, 6, 6);    //纵向合并单元格 
-            sheet.addMergedRegion(region);
-
-            nCell = nRow.createCell(6);
-            nCell.setCellValue(printMap.get(&quot;PackingUnit2&quot;));
-            nCell.setCellStyle(poiUtil.moneyrv10_BorderThin(wb, defaultFont10, rmb4Format));    
-
-            //Price
-            region = new CellRangeAddress(curRow-1, curRow, 7, 7);    //纵向合并单元格 
-            sheet.addMergedRegion(region);
-
-            nCell = nRow.createCell(7);
-            nCell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);
-            nCell.setCellValue(Double.parseDouble(printMap.get(&quot;Price2&quot;)));
-            nCell.setCellStyle(poiUtil.moneyrv10_BorderThin(wb, defaultFont10, rmb4Format));
-
-
-            //Amount
-            region = new CellRangeAddress(curRow-1, curRow, 8, 8);    //纵向合并单元格 
-            sheet.addMergedRegion(region);
-
-            nCell = nRow.createCell(8);
-            if(UtilFuns.isNotEmpty(printMap.get(&quot;Cnumber2&quot;)) &amp;&amp; UtilFuns.isNotEmpty(printMap.get(&quot;Price2&quot;))){
-                nCell.setCellType(HSSFCell.CELL_TYPE_FORMULA);
-                nCell.setCellFormula(&quot;F&quot;+String.valueOf(curRow)+&quot;*H&quot;+String.valueOf(curRow));
-            }
-            nCell.setCellStyle(poiUtil.moneyrv10_BorderThin(wb, defaultFont10, rmb4Format));        
-
-            curRow++;
-
-            region = new CellRangeAddress(curRow-1, curRow-1, 1, 3);    //纵向合并单元格
-            sheet.addMergedRegion(region);
-
-            nRow = sheet.createRow(curRow-1);
-            nRow.setHeightInPoints(24);
-
-            nCell = nRow.createCell(1);
-            nCell.setCellValue(printMap.get(&quot;ProductNo2&quot;));
-            nCell.setCellStyle(poiUtil.notecv10_BorderThin(wb, defaultFont10));            
-
-            //合并单元格画线
-            for(int j=2;j&lt;9;j++){
-                nCell = nRow.createCell(j);
-                nCell.setCellStyle(poiUtil.notehv10_BorderThin(wb, defaultFont10));
-            }                
-        }
-
-
-        //InputBy
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(24);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(printMap.get(&quot;InputBy&quot;));
-        nCell.setCellStyle(poiUtil.bnormalv12(wb,defaultFont12));
-
-        //CheckBy+inspector
-
-        nCell = nRow.createCell(4);
-        nCell.setCellValue(printMap.get(&quot;CheckBy&quot;));
-        nCell.setCellStyle(poiUtil.bnormalv12(wb,defaultFont12));
-
-        //if(contract.getPrintStyle().equals(&quot;2&quot;) &amp;&amp; UtilFuns.isNotEmpty(printMap.get(&quot;ProductNo2&quot;))){
-
-            nCell = nRow.createCell(7);
-            nCell.setCellValue(&quot;总金额：&quot;);
-            nCell.setCellStyle(bcv12(wb));
-
-            //TotalAmount
-            nRow = sheet.createRow(curRow-1);
-            nRow.setHeightInPoints(24);
-            if(UtilFuns.isNotEmpty(printMap.get(&quot;Cnumber&quot;))&amp;&amp;UtilFuns.isNotEmpty(printMap.get(&quot;Price&quot;))){
-                nCell  = nRow.createCell(8);
-                nCell.setCellType(HSSFCell.CELL_TYPE_FORMULA);
-                nCell.setCellFormula(&quot;SUM(I&quot;+String.valueOf(curRow-4)+&quot;:I&quot;+String.valueOf(curRow-1)+&quot;)&quot;);
-                nCell.setCellStyle(poiUtil.moneyrv12_BorderThin(wb,defaultFont12,rmb2Format));        
-            }
-        //}
-
-
-        //note
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(21);
-
-        nCell = nRow.createCell(2);
-        nCell.setCellValue(printMap.get(&quot;Remark&quot;));
-        nCell.setCellStyle(noteStyle(wb));            
-
-        //Request
-        region = new CellRangeAddress(curRow, curRow, 1, 8);    //指定合并区域 
-        sheet.addMergedRegion(region);
-
-        nRow = sheet.createRow(curRow++);
-        float height = poiUtil.getCellAutoHeight(printMap.get(&quot;Request&quot;), 12f);        //自动高度
-        nRow.setHeightInPoints(height);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(printMap.get(&quot;Request&quot;));
-        nCell.setCellStyle(requestStyle(wb));
-
-        //space line
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(20);
-
-        //duty
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(32);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(&quot;未按以上要求出货而导致客人索赔，由供方承担。&quot;);
-        nCell.setCellStyle(dutyStyle(wb));    
-
-        //space line
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(32);
-
-        //buyer
-        nRow = sheet.createRow(curRow++);
-        nRow.setHeightInPoints(25);
-
-        nCell = nRow.createCell(1);
-        nCell.setCellValue(&quot;    收购方负责人：&quot;);
-        nCell.setCellStyle(dutyStyle(wb));                
-
-        //seller
-        nCell = nRow.createCell(5);
-        nCell.setCellValue(&quot;供方负责人：&quot;);
-        nCell.setCellStyle(dutyStyle(wb));    
-
-        curRow++;
-
-    }
-
-    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();            //生成流对象
-    wb.write(byteArrayOutputStream);                                                    //将excel写入流
-
-    //工具类，封装弹出下载框：        
-    String outFile = &quot;购销合同.xls&quot;;
-    DownloadUtil down = new DownloadUtil();
-    down.download(byteArrayOutputStream, response, outFile);
-
-}
-
-private HSSFCellStyle leftStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    curStyle.setWrapText(true);                          //换行   
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-    //fTitle.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)10);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    curStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);                //实线右边框
-    curStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);                //实线右边框
-
-    return curStyle;
-}  
-
-private HSSFCellStyle headStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;Comic Sans MS&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setItalic(true);
-    curFont.setFontHeightInPoints((short)16);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}  
-
-private HSSFCellStyle tipStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;Georgia&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)28);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}  
-
-private HSSFCellStyle addressStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;宋体&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    //fTitle.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)10);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}  
-
-private HSSFCellStyle ltdStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;Times New Roman&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setItalic(true);
-    curFont.setFontHeightInPoints((short)16);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}     
-
-private HSSFCellStyle telStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;宋体&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    //fTitle.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)9);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}     
-
-private HSSFCellStyle titleStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;黑体&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)18);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}     
-
-private HSSFCellStyle requestStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    curStyle.setWrapText(true);                          //换行   
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;宋体&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setFontHeightInPoints((short)10);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}     
-
-private HSSFCellStyle dutyStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;黑体&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)16);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}     
-
-private HSSFCellStyle noteStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;宋体&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)12);
-    curStyle.setFont(curFont);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-} 
-
-public HSSFCellStyle thStyle(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                    //设置字体
-    curFont.setFontName(&quot;宋体&quot;);
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);    //加粗
-    curFont.setFontHeightInPoints((short)12);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);        //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);                //实线右边框
-    curStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);                //实线右边框
-    curStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);            //实线右边框
-    curStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);                //实线右边框
-
-    curStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}  
-
-public HSSFCellStyle bcv12(HSSFWorkbook wb){
-    HSSFCellStyle curStyle = wb.createCellStyle();
-    HSSFFont curFont = wb.createFont();                        //设置字体
-    curFont.setFontName(&quot;Times New Roman&quot;);
-    curFont.setCharSet(HSSFFont.DEFAULT_CHARSET);            //设置中文字体，那必须还要再对单元格进行编码设置
-
-    curFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);        //加粗
-    curFont.setFontHeightInPoints((short)12);
-    curStyle.setFont(curFont);
-
-    curStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);                //实线
-    curStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);            //粗实线
-    curStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);            //实线
-    curStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);                //实线
-
-    curStyle.setAlignment(HSSFCellStyle.ALIGN_RIGHT);
-    curStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);        //单元格垂直居中
-
-    return curStyle;
-}        
-
-}
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2677,7 +1925,7 @@ public HSSFCellStyle bcv12(HSSFWorkbook wb){
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
